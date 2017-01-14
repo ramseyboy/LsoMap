@@ -4,7 +4,8 @@
   "description": "Telecom Exchange Mileage Application",
   "private": true,
   "scripts": {
-    "build": "dotnet build && webpack",
+    "dev": "ASPNETCORE_ENVIRONMENT=Development dotnet build && webpack",
+    "prod": "ASPNETCORE_ENVIRONMENT=Production dotnet build && webpack",
     "start": "dotnet run",
     "watch": "webpack --watch"
   },
