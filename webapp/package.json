@@ -4,22 +4,24 @@
   "description": "Telecom Exchange Mileage Application",
   "private": true,
   "scripts": {
-    "dev": "ASPNETCORE_ENVIRONMENT=Development dotnet build && webpack",
-    "prod": "ASPNETCORE_ENVIRONMENT=Production dotnet build && webpack",
+    "dev": "export ASPNETCORE_ENVIRONMENT=Development && dotnet build && webpack --config webpack.config.vendor.js && webpack",
+    "prod": "export ASPNETCORE_ENVIRONMENT=Production dotnet build  && webpack --config webpack.config.vendor.js && webpack",
     "start": "dotnet run",
-    "watch": "webpack --watch"
+    "watch": "webpack --watch",
+    "config": "webpack --config webpack.config.vendor.js"
   },
   "author": "Walker Hannan",
   "homepage": "https://github.com/ramseyboy",
-  "dependencies": {
-    "typescript": "^2.1.4"
-  },
   "devDependencies": {
-    "babel-core": "^6.21.0",
-    "babel-loader": "^6.2.10",
-    "babel-preset-es2015": "^6.18.0",
-    "babel-plugin-transform-object-assign": "6.8.0",
-    "babel-polyfill": "6.13.0",
+    "css-loader": "^0.23.1",
+    "event-source-polyfill": "^0.0.7",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "extendify": "^1.0.0",
+    "file-loader": "^0.8.5",
+    "style-loader": "^0.13.0",
+    "ts-loader": "^0.8.1",
+    "url-loader": "^0.5.7",
+    "typescript": "^2.1.4",
     "webpack": "^1.14.0"
   }
 }

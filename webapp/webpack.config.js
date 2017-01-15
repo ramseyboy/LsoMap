@@ -1,19 +1,35 @@
 var path = require('path');
+var webpack = require('webpack');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var merge = require('extendify')({ isDeep: true, arrays: 'concat' });
+var devConfig = require('./webpack.config.dev');
+var prodConfig = require('./webpack.config.prod');
+var isDevelopment = process.env.ASPNETCORE_ENVIRONMENT === 'Development';
+var extractCSS = new ExtractTextPlugin('exchange.css');
 
-module.exports = {
-    entry: './wwwroot/js/exchange.js',
-    output: {
-        path: path.join(__dirname, 'wwwroot/build'),
-        filename: 'bundle.js'
+module.exports = merge({
+    resolve: {
+        extensions: [ '', '.js', '.jsx', '.ts', '.tsx' ]
     },
-    devtool: 'inline-source-map',
     module: {
         loaders: [
-            {
-                test: /\.js/,
-                loader: 'babel-loader',
-                include: __dirname + '/src'
-            }
+            { test: /\.ts(x?)$/, include: /client/, loader: 'ts-loader?silent=true' },
+            { test: /\.css/, loader: extractCSS.extract(['css-loader']) }
         ]
-    }
-};
+    },
+    entry: {
+        main: ['./client/exchange.ts']
+    },
+    output: {
+        path: path.join(__dirname, 'wwwroot', 'dist'),
+        filename: 'bundle.js',
+        publicPath: '/dist/'
+    },
+    plugins: [
+        extractCSS,
+        new webpack.DllReferencePlugin({
+            context: __dirname,
+            manifest: require('./wwwroot/dist/vendor-manifest.json')
+        })
+    ]
+}, isDevelopment ? devConfig : prodConfig);
