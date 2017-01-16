@@ -44,7 +44,7 @@ namespace Exchange
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/App/Error");
             }
 
             app.UseStaticFiles();
@@ -53,7 +53,7 @@ namespace Exchange
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=App}/{action=Index}/{id?}");
             });
         }
     }
