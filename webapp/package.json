@@ -23,5 +23,12 @@
     "url-loader": "^0.5.7",
     "typescript": "^2.1.4",
     "webpack": "^1.14.0"
+  },
+  "dependencies": {
+    "leaflet": "^1.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ramseyboy/telecom-exchange.git"
   }
 }

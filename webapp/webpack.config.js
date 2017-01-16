@@ -9,12 +9,20 @@ var extractCSS = new ExtractTextPlugin('exchange.css');
 
 module.exports = merge({
     resolve: {
-        extensions: [ '', '.js', '.jsx', '.ts', '.tsx' ]
+        extensions: [ '', '.js', '.jsx', '.ts', '.tsx' ],
+        alias: {
+            leaflet_css: __dirname + "/node_modules/leaflet/dist/leaflet.css"
+        }
     },
     module: {
         loaders: [
             { test: /\.ts(x?)$/, include: /client/, loader: 'ts-loader?silent=true' },
-            { test: /\.css/, loader: extractCSS.extract(['css-loader']) }
+            { test: /\.css/, loader: extractCSS.extract(['css-loader']) },
+            {
+                test: /\.png$/,
+                loader: 'url-loader',
+                query: { mimetype: 'image/png' }
+            }
         ]
     },
     entry: {
