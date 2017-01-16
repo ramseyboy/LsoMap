@@ -6,19 +6,21 @@
     <title>@ViewData["Title"] - Exchange</title>
 
     <environment names="Development">
-        <link rel="stylesheet" href="~/css/exchange.css" />
+        <link rel="stylesheet" href="~/dist/exchange.css" />
     </environment>
     <environment names="Staging,Production">
-        <link rel="stylesheet" href="~/css/exchange.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/dist/exchange.css" asp-append-version="true" />
     </environment>
 </head>
 <body>
     @RenderBody()
 
     <environment names="Development">
+        <script src="~/dist/vendor.js" asp-append-version="true"></script>
         <script src="~/dist/bundle.js" asp-append-version="true"></script>
     </environment>
     <environment names="Staging,Production">
+        <script src="~/dist/vendor.js" asp-append-version="true"></script>
         <script src="~/dist/bundle.js" asp-append-version="true"></script>
     </environment>
 

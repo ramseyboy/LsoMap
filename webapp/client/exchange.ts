@@ -1,6 +1,4 @@
-/**
- * Created by walkerhannan on 1/10/17.
- */
+import './css/exchange.css';
 
 (function() {
     'use strict';
