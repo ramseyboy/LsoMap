@@ -1,0 +1,795 @@
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="Author" content="Ray Chow"/>
+<!-- Compilation and programming &copy; 1996-2016 Ray Chow" -->
+<meta name="description" content="Local calling guide"/>
+<meta name="keywords" content="local calling area, npa, nxx, rate center, rate centre, prefix, area code, nanp, north american numbering plan"/>
+<meta name="robots" content="index,follow"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="stylesheet" type="text/css" media="screen" href="simple.css"/>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+<link rel="home" href="index.php"/>
+<title>Local calling guide: NPA-NXX search</title>
+</head>
+<body>
+<div id="content">
+<h1>Local Calling Guide</h1>
+<!-- CSS menu from https://www.justsoftwaresolutions.co.uk/articles/css_menus.html -->
+
+	<nav>
+	<ul class="menu">
+		<li><a href="index.php">home</a></li>
+		<li><a href="about.php">about</a>
+			<ul>
+				<li><a href="https://localcallingguide.wordpress.com/">what's new</a></li>
+				<li><a href="feedback.php">feedback</a></li>
+				<li><a href="saq.php">SAQ</a></li>
+			</ul>
+		</li>
+		<li><a href="search.php">search</a>
+			<ul>
+				<li><a href="lca_prefix.php">area code/prefix</a></li>
+				<li><a href="lca_listexch.php">rate centre</a></li>
+				<li><a href="lca_switch.php">switch CLLI</a></li>
+				<li><a href="lca_telco.php">telco</a></li>
+				<li><a href="lca_activity.php">activity</a></li>
+				<li><a href="lca_cic.php">dial-around code</a></li>
+				<li><a href="lca_rcdist.php">local call finder</a></li>
+				<li><a href="lca_dialplan.php">dial plan</a></li>
+				<li><a href="xmlquery.php">XML query</a></li>
+			</ul>
+		</li>
+		<li><a href="browse.php">lists</a>
+			<ul>
+				<li><a href="lca_listregion.php">region</a></li>
+				<li><a href="lca_listnpa.php">area code</a></li>
+				<li><a href="lca_listlata.php">LATA</a></li>
+				<li><a href="lca_listlir.php">LIR</a></li>
+			</ul>
+		</li>
+		<li><a href="links.php">links</a>
+			<ul>
+				<li><a href="lca_tariff.php">tariffs</a></li>
+				<li><a href="lca_link.php">other links</a></li>
+				<li><a href="https://groups.yahoo.com/group/local-calling-guide/">discuss</a></li>
+			</ul>
+		</li>
+	</ul>
+	</nav>
+
+  <main>
+    <!-- begin form -->
+    <h2>Area code/prefix search</h2>
+    <div id="form">
+      <form action="/lca_prefix.php" method="get">
+      <fieldset>
+      <legend>Search area code/prefix (<abbr title="Numbering plan area (area code)">NPA</abbr>/<abbr title="Central office code (prefix)">NXX</abbr>)</legend>
+      <div>
+      <label for="npa">NPA <input type="number" name="npa" min="201" max="999" id="npa" value="434"/> </label>
+      <label for="nxx">NXX <input type="number" name="nxx" min="200" max="999" id="nxx" value=""/> </label>
+      <label for="x">Block <input type="text" name="x" size="1" maxlength="1" id="x" value=""/> </label>
+      </div>
+      <div>
+      <label for="ocn"><a href="lca_telco.php">OCN</a> <input type="text" name="ocn" size="4" maxlength="4" id="ocn" value=""/> </label>
+      <label for="region"><a href="lca_listregion.php">Region</a> <input type="text" name="region" size="2" maxlength="2" id="region" value=""/> </label>
+      <label for="lata"><a href="lca_listlata.php">LATA</a> <input type="text" name="lata" size="5" maxlength="5" id="lata" value=""/> </label>
+      <label for="switch">Switch <input type="text" name="switch" size="11" maxlength="11" id="switch" value=""/> </label>
+      </div>
+      <div>
+      <label for="pastdays">Effective date within past<input type="number" name="pastdays" min="0" max="999" id="pastdays" value=""/></label>
+      <label for="nextdays">or next<input type="number" name="nextdays" min="0" max="999" id="nextdays" value=""/> days</label>
+      <ul>
+      <li>Effective date searches are available only for US area codes. Our sources for non-US NPA-NXX data do not provide this information.</li>
+      <li>If you want to search an entire area code regardless of activity, leave both the
+      next and past days fields set to zero.</li>
+      </ul>
+      </div>
+      </fieldset>
+      <input type="submit" value="submit"/>
+      </form>
+    </div>
+
+<!-- end form -->
+  <!--<p><a href="prefixhelp.php">How to use this page</a></p>-->
+      <p>NPA: <span class="srch"><a href="/lca_prefix.php?npa=434">434</a></span>
+     <a href="lca_listexch.php?npa=434">[Rate centres in NPA 434]</a>
+     <a href="lca_dialplan.php?npa=434">[Dial plan for NPA 434]</a>
+    </p>
+    <p>
+<a class="selected">1</a> <a href="/lca_prefix.php?page=2&amp;npa=434">2</a> <a href="/lca_prefix.php?page=3&amp;npa=434">3</a> <a href="/lca_prefix.php?page=4&amp;npa=434">4</a> <a href="/lca_prefix.php?page=5&amp;npa=434">5</a> <a href="/lca_prefix.php?page=6&amp;npa=434">6</a> <a href="/lca_prefix.php?page=7&amp;npa=434">7</a> <a href="/lca_prefix.php?page=8&amp;npa=434">8</a> <a href="/lca_prefix.php?page=9&amp;npa=434">9</a> <a href="/lca_prefix.php?page=10&amp;npa=434">10</a> <a href="/lca_prefix.php?page=11&amp;npa=434">11</a> <a href="/lca_prefix.php?page=12&amp;npa=434">12</a> <a href="/lca_prefix.php?page=13&amp;npa=434">13</a> <a href="/lca_prefix.php?page=14&amp;npa=434">14</a> <a href="/lca_prefix.php?page=15&amp;npa=434">15</a> <a href="/lca_prefix.php?page=16&amp;npa=434">16</a> <a href="/lca_prefix.php?page=17&amp;npa=434">17</a> <a href="/lca_prefix.php?page=18&amp;npa=434">18</a> <a href="/lca_prefix.php?page=19&amp;npa=434">19</a> <a href="/lca_prefix.php?page=20&amp;npa=434">20</a> <a href="/lca_prefix.php?page=21&amp;npa=434">21</a> <a href="/lca_prefix.php?page=22&amp;npa=434">22</a> <a href="/lca_prefix.php?page=23&amp;npa=434">23</a> <a href="/lca_prefix.php?page=24&amp;npa=434">24</a> <a href="/lca_prefix.php?page=25&amp;npa=434">25</a> <a href="/lca_prefix.php?page=26&amp;npa=434">26</a> <a href="/lca_prefix.php?page=27&amp;npa=434">27</a> <a href="/lca_prefix.php?page=28&amp;npa=434">28</a> <a href="/lca_prefix.php?page=29&amp;npa=434">29</a> <a href="/lca_prefix.php?page=30&amp;npa=434">30</a> <a href="/lca_prefix.php?page=31&amp;npa=434">31</a> <a href="/lca_prefix.php?page=32&amp;npa=434">32</a> <a href="/lca_prefix.php?page=33&amp;npa=434">33</a> <a href="/lca_prefix.php?page=34&amp;npa=434">34</a> <a href="/lca_prefix.php?page=35&amp;npa=434">35</a> <a href="/lca_prefix.php?page=36&amp;npa=434">36</a> <a href="/lca_prefix.php?page=37&amp;npa=434">37</a> <a href="/lca_prefix.php?page=38&amp;npa=434">38</a> <a href="/lca_prefix.php?page=39&amp;npa=434">39</a> <a href="/lca_prefix.php?page=40&amp;npa=434">40</a> <a href="/lca_prefix.php?page=41&amp;npa=434">41</a> <a href="/lca_prefix.php?page=42&amp;npa=434">42</a> <a href="/lca_prefix.php?page=43&amp;npa=434">43</a> <a href="/lca_prefix.php?page=44&amp;npa=434">44</a> <a href="/lca_prefix.php?page=45&amp;npa=434">45</a> <a href="/lca_prefix.php?page=2&amp;npa=434">&gt;&gt;</a> 
+</p>
+  <table>
+  <thead>
+    <tr>
+      <th id="npanxx">NPA-NXX</th>
+      <th id="block">BLOCK</th>
+        <th id="exchange">Rate Centre</th>
+      <th id="oregion">Region</th>
+        <th id="oswitch">Switch</th>
+        <th id="oocn">OCN</th>
+        <th id="olata">LATA</th>
+        <th id="effdate">Eff date</th>
+      <th id="discdate">Disc date</th>
+      <th id="map">Map</th>
+    </tr>
+  </thead>
+  <tbody>
+
+          <tr>
+          <td headers="npanxx" data-label="NPA-NXX"><a title="Local prefixes for Lynchburg VA" href="lprefix.php?exch=203620">434-200</a>
+          </td><td headers="block" data-label="Block">A</td>
+      	    <td headers="exchange" data-label="Rate centre"><a title="Local rate centres for Lynchburg VA" href="lca_exch.php?exch=203620">Lynchburg</a></td>
+	    <td headers="oregion" data-label="Region"><a title="Rate centres in VA" href="lca_listexch.php?region=VA">VA</a></td>
+      	      <td headers="oswitch" data-label="Switch"><a title="Prefixes for switch LYBGVACHX9X" href="/lca_prefix.php?switch=LYBGVACHX9X">LYBGVACHX9X</a>&#160;</td>
+		      <td headers="oocn" data-label="OCN"><a title="Prefixes assigned to 7229 MCIMETRO ACCESS TRANSMISSION SERVICES LLC         " href="/lca_prefix.php?ocn=7229">7229 MCIMETRO ACCESS TRANSMISSION SERVICES LLC         </a></td>
+		      <td headers="olata" data-label="LATA"><a title="Rate centres in LATA 250" href="lca_listexch.php?lata=250">250</a></td>
+	          <td headers="effdate" data-label="Effective date"><a title="Effective date">2004-10-07</a>&#160;</td>
+          <td headers="discdate" data-label="Disconnect date"><a title="Scheduled disconnection date">&#160;</a>
+      </td>
+      	    <td headers="map" data-label="Map"><a title="Map of Lynchburg, VA" href="http://maps.google.ca/local?f=q&amp;h1=en&amp;z=9&amp;q=loc:37.418771,-79.143094">map</a></td>
+       </tr>
+        <tr>
+          <td headers="npanxx" data-label="NPA-NXX"><a title="Local prefixes for Lynchburg VA" href="lprefix.php?exch=203620">434-200</a>
+          </td><td headers="block" data-label="Block">0</td>
+      	    <td headers="exchange" data-label="Rate centre"><a title="Local rate centres for Lynchburg VA" href="lca_exch.php?exch=203620">Lynchburg</a></td>
+	    <td headers="oregion" data-label="Region"><a title="Rate centres in VA" href="lca_listexch.php?region=VA">VA</a></td>
+      	      <td headers="oswitch" data-label="Switch"><a title="Prefixes for switch " href="/lca_prefix.php?switch="/>&#160;</td>
+		      <td headers="oocn" data-label="OCN"><a title="Prefixes assigned to 8571 SPRINT SPECTRUM L.P.- VA" href="/lca_prefix.php?ocn=8571">8571 SPRINT SPECTRUM L.P.- VA</a></td>
+		      <td headers="olata" data-label="LATA"><a title="Rate centres in LATA 250" href="lca_listexch.php?lata=250">250</a></td>
+	          <td headers="effdate" data-label="Effective date"><a title="Effective date">2011-01-13</a>&#160;</td>
+          <td headers="discdate" data-label="Disconnect date"><a title="Scheduled disconnection date">&#160;</a>
+      </td>
+      	    <td headers="map" data-label="Map">&#160;</td>
+     </tr>
+        <tr>
+          <td headers="npanxx" data-label="NPA-NXX"><a title="Local prefixes for Lynchburg VA" href="lprefix.php?exch=203620">434-200</a>
+          </td><td headers="block" data-label="Block">1</td>
+      	    <td headers="exchange" data-label="Rate centre"><a title="Local rate centres for Lynchburg VA" href="lca_exch.php?exch=203620">Lynchburg</a></td>
+	    <td headers="oregion" data-label="Region"><a title="Rate centres in VA" href="lca_listexch.php?region=VA">VA</a></td>
+      	      <td headers="oswitch" data-label="Switch"><a title="Prefixes for switch " href="/lca_prefix.php?switch="/>&#160;</td>
+		      <td headers="oocn" data-label="OCN"><a title="Prefixes assigned to 7849 LUMOS NETWORKS INC. - VA                          " href="/lca_prefix.php?ocn=7849">7849 LUMOS NETWORKS INC. - VA                          </a></td>
+		      <td headers="olata" data-label="LATA"><a title="Rate centres in LATA 250" href="lca_listexch.php?lata=250">250</a></td>
+	          <td headers="effdate" data-label="Effective date"><a title="Effective date">2007-06-16</a>&#160;</td>
+          <td headers="discdate" data-label="Disconnect date"><a title="Scheduled disconnection date">&#160;</a>
+      </td>
+      	    <td headers="map" data-label="Map">&#160;</td>
+     </tr>
+        <tr>
+          <td headers="npanxx" data-label="NPA-NXX"><a title="Local prefixes for Lynchburg VA" href="lprefix.php?exch=203620">434-200</a>
+          </td><td headers="block" data-label="Block">2</td>
+      	    <td headers="exchange" data-label="Rate centre"><a title="Local rate centres for Lynchburg VA" href="lca_exch.php?exch=203620">Lynchburg</a></td>
+	    <td headers="oregion" data-label="Region"><a title="Rate centres in VA" href="lca_listexch.php?region=VA">VA</a></td>
+      	      <td headers="oswitch" data-label="Switch"><a title="Prefixes for switch " href="/lca_prefix.php?switch="/>&#160;</td>
+		      <td headers="oocn" data-label="OCN"><a title="Prefixes assigned to 7849 LUMOS NETWORKS INC. - VA                          " href="/lca_prefix.php?ocn=7849">7849 LUMOS NETWORKS INC. - VA                          </a></td>
+		      <td headers="olata" data-label="LATA"><a title="Rate centres in LATA 250" href="lca_listexch.php?lata=250">250</a></td>
+	          <td headers="effdate" data-label="Effective date"><a title="Effective date">2007-06-16</a>&#160;</td>
+          <td headers="discdate" data-label="Disconnect date"><a title="Scheduled disconnection date">&#160;</a>
+      </td>
+      	    <td headers="map" data-label="Map">&#160;</td>
+     </tr>
+        <tr>
+          <td headers="npanxx" data-label="NPA-NXX"><a title="Local prefixes for Lynchburg VA" href="lprefix.php?exch=203620">434-200</a>
+          </td><td headers="block" data-label="Block">3</td>
+      	    <td headers="exchange" data-label="Rate centre"><a title="Local rate centres for Lynchburg VA" href="lca_exch.php?exch=203620">Lynchburg</a></td>
+	    <td headers="oregion" data-label="Region"><a title="Rate centres in VA" href="lca_listexch.php?region=VA">VA</a></td>
+      	      <td headers="oswitch" data-label="Switch"><a title="Prefixes for switch " href="/lca_prefix.php?switch="/>&#160;</td>
+		      <td headers="oocn" data-label="OCN"><a title="Prefixes assigned to 7849 LUMOS NETWORKS INC. - VA                          " href="/lca_prefix.php?ocn=7849">7849 LUMOS NETWORKS INC. - VA                          </a></td>
+		      <td headers="olata" data-label="LATA"><a title="Rate centres in LATA 250" href="lca_listexch.php?lata=250">250</a></td>
+	          <td headers="effdate" data-label="Effective date"><a title="Effective date">2007-06-16</a>&#160;</td>
+          <td headers="discdate" data-label="Disconnect date"><a title="Scheduled disconnection date">&#160;</a>
+      </td>
+      	    <td headers="map" data-label="Map">&#160;</td>
+     </tr>
+        <tr>
+          <td headers="npanxx" data-label="NPA-NXX"><a title="Local prefixes for Lynchburg VA" href="lprefix.php?exch=203620">434-200</a>
+          </td><td headers="block" data-label="Block">4</td>
+      	    <td headers="exchange" data-label="Rate centre"><a title="Local rate centres for Lynchburg VA" href="lca_exch.php?exch=203620">Lynchburg</a></td>
+	    <td headers="oregion" data-label="Region"><a title="Rate centres in VA" href="lca_listexch.php?region=VA">VA</a></td>
+      	      <td headers="oswitch" data-label="Switch"><a title="Prefixes for switch " href="/lca_prefix.php?switch="/>&#160;</td>
+		      <td headers="oocn" data-label="OCN"><a title="Prefixes assigned to 7849 LUMOS NETWORKS INC. - VA                          " href="/lca_prefix.php?ocn=7849">7849 LUMOS NETWORKS INC. - VA                          </a></td>
+		      <td headers="olata" data-label="LATA"><a title="Rate centres in LATA 250" href="lca_listexch.php?lata=250">250</a></td>
+	          <td headers="effdate" data-label="Effective date"><a title="Effective date">2007-06-16</a>&#160;</td>
+          <td headers="discdate" data-label="Disconnect date"><a title="Scheduled disconnection date">&#160;</a>
+      </td>
+      	    <td headers="map" data-label="Map">&#160;</td>
+     </tr>
+        <tr>
+          <td headers="npanxx" data-label="NPA-NXX"><a title="Local prefixes for Lynchburg VA" href="lprefix.php?exch=203620">434-200</a>
+          </td><td headers="block" data-label="Block">5</td>
+      	    <td headers="exchange" data-label="Rate centre"><a title="Local rate centres for Lynchburg VA" href="lca_exch.php?exch=203620">Lynchburg</a></td>
+	    <td headers="oregion" data-label="Region"><a title="Rate centres in VA" href="lca_listexch.php?region=VA">VA</a></td>
+      	      <td headers="oswitch" data-label="Switch"><a title="Prefixes for switch " href="/lca_prefix.php?switch="/>&#160;</td>
+		      <td headers="oocn" data-label="OCN"><a title="Prefixes assigned to 7849 LUMOS NETWORKS INC. - VA                          " href="/lca_prefix.php?ocn=7849">7849 LUMOS NETWORKS INC. - VA                          </a></td>
+		      <td headers="olata" data-label="LATA"><a title="Rate centres in LATA 250" href="lca_listexch.php?lata=250">250</a></td>
+	          <td headers="effdate" data-label="Effective date"><a title="Effective date">2007-06-16</a>&#160;</td>
+          <td headers="discdate" data-label="Disconnect date"><a title="Scheduled disconnection date">&#160;</a>
+      </td>
+      	    <td headers="map" data-label="Map">&#160;</td>
+     </tr>
+        <tr>
+          <td headers="npanxx" data-label="NPA-NXX"><a title="Local prefixes for Lynchburg VA" href="lprefix.php?exch=203620">434-200</a>
+          </td><td headers="block" data-label="Block">6</td>
+      	    <td headers="exchange" data-label="Rate centre"><a title="Local rate centres for Lynchburg VA" href="lca_exch.php?exch=203620">Lynchburg</a></td>
+	    <td headers="oregion" data-label="Region"><a title="Rate centres in VA" href="lca_listexch.php?region=VA">VA</a></td>
+      	      <td headers="oswitch" data-label="Switch"><a title="Prefixes for switch " href="/lca_prefix.php?switch="/>&#160;</td>
+		      <td headers="oocn" data-label="OCN"><a title="Prefixes assigned to 7849 LUMOS NETWORKS INC. - VA                          " href="/lca_prefix.php?ocn=7849">7849 LUMOS NETWORKS INC. - VA                          </a></td>
+		      <td headers="olata" data-label="LATA"><a title="Rate centres in LATA 250" href="lca_listexch.php?lata=250">250</a></td>
+	          <td headers="effdate" data-label="Effective date"><a title="Effective date">2007-06-16</a>&#160;</td>
+          <td headers="discdate" data-label="Disconnect date"><a title="Scheduled disconnection date">&#160;</a>
+      </td>
+      	    <td headers="map" data-label="Map">&#160;</td>
+     </tr>
+        <tr>
+          <td headers="npanxx" data-label="NPA-NXX"><a title="Local prefixes for Lynchburg VA" href="lprefix.php?exch=203620">434-200</a>
+          </td><td headers="block" data-label="Block">7</td>
+      	    <td headers="exchange" data-label="Rate centre"><a title="Local rate centres for Lynchburg VA" href="lca_exch.php?exch=203620">Lynchburg</a></td>
+	    <td headers="oregion" data-label="Region"><a title="Rate centres in VA" href="lca_listexch.php?region=VA">VA</a></td>
+      	      <td headers="oswitch" data-label="Switch"><a title="Prefixes for switch " href="/lca_prefix.php?switch="/>&#160;</td>
+		      <td headers="oocn" data-label="OCN"><a title="Prefixes assigned to 7849 LUMOS NETWORKS INC. - VA                          " href="/lca_prefix.php?ocn=7849">7849 LUMOS NETWORKS INC. - VA                          </a></td>
+		      <td headers="olata" data-label="LATA"><a title="Rate centres in LATA 250" href="lca_listexch.php?lata=250">250</a></td>
+	          <td headers="effdate" data-label="Effective date"><a title="Effective date">2007-06-16</a>&#160;</td>
+          <td headers="discdate" data-label="Disconnect date"><a title="Scheduled disconnection date">&#160;</a>
+      </td>
+      	    <td headers="map" data-label="Map">&#160;</td>
+     </tr>
+        <tr>
+          <td headers="npanxx" data-label="NPA-NXX"><a title="Local prefixes for Lynchburg VA" href="lprefix.php?exch=203620">434-200</a>
+          </td><td headers="block" data-label="Block">8</td>
+      	    <td headers="exchange" data-label="Rate centre"><a title="Local rate centres for Lynchburg VA" href="lca_exch.php?exch=203620">Lynchburg</a></td>
+	    <td headers="oregion" data-label="Region"><a title="Rate centres in VA" href="lca_listexch.php?region=VA">VA</a></td>
+      	      <td headers="oswitch" data-label="Switch"><a title="Prefixes for switch " href="/lca_prefix.php?switch="/>&#160;</td>
+		      <td headers="oocn" data-label="OCN"><a title="Prefixes assigned to 8825 LEVEL 3 COMMUNICATIONS, LLC - VA" href="/lca_prefix.php?ocn=8825">8825 LEVEL 3 COMMUNICATIONS, LLC - VA</a></td>
+		      <td headers="olata" data-label="LATA"><a title="Rate centres in LATA 250" href="lca_listexch.php?lata=250">250</a></td>
+	          <td headers="effdate" data-label="Effective date"><a title="Effective date">2008-01-29</a>&#160;</td>
+          <td headers="discdate" data-label="Disconnect date"><a title="Scheduled disconnection date">&#160;</a>
+      </td>
+      	    <td headers="map" data-label="Map">&#160;</td>
+     </tr>
+        <tr>
+          <td headers="npanxx" data-label="NPA-NXX"><a title="Local prefixes for Lynchburg VA" href="lprefix.php?exch=203620">434-200</a>
+          </td><td headers="block" data-label="Block">9</td>
+      	    <td headers="exchange" data-label="Rate centre"><a title="Local rate centres for Lynchburg VA" href="lca_exch.php?exch=203620">Lynchburg</a></td>
+	    <td headers="oregion" data-label="Region"><a title="Rate centres in VA" href="lca_listexch.php?region=VA">VA</a></td>
+      	      <td headers="oswitch" data-label="Switch"><a title="Prefixes for switch " href="/lca_prefix.php?switch="/>&#160;</td>
+		      <td headers="oocn" data-label="OCN"><a title="Prefixes assigned to 7229 MCIMETRO ACCESS TRANSMISSION SERVICES LLC         " href="/lca_prefix.php?ocn=7229">7229 MCIMETRO ACCESS TRANSMISSION SERVICES LLC         </a></td>
+		      <td headers="olata" data-label="LATA"><a title="Rate centres in LATA 250" href="lca_listexch.php?lata=250">250</a></td>
+	          <td headers="effdate" data-label="Effective date"><a title="Effective date">2004-10-07</a>&#160;</td>
+          <td headers="discdate" data-label="Disconnect date"><a title="Scheduled disconnection date">&#160;</a>
+      </td>
+      	    <td headers="map" data-label="Map">&#160;</td>
+     </tr>
+        <tr>
+          <td headers="npanxx" data-label="NPA-NXX"><a title="Local prefixes for Whitmell VA" href="lprefix.php?exch=205110">434-201</a>
+          </td><td headers="block" data-label="Block">A</td>
+      	    <td headers="exchange" data-label="Rate centre"><a title="Local rate centres for Whitmell VA" href="lca_exch.php?exch=205110">Whitmell</a></td>
+	    <td headers="oregion" data-label="Region"><a title="Rate centres in VA" href="lca_listexch.php?region=VA">VA</a></td>
+      	      <td headers="oswitch" data-label="Switch"><a title="Prefixes for switch " href="/lca_prefix.php?switch="/>&#160;</td>
+		      <td headers="oocn" data-label="OCN"><a title="Prefixes assigned to 5562 METRO PCS, INC." href="/lca_prefix.php?ocn=5562">5562 METRO PCS, INC.</a></td>
+		      <td headers="olata" data-label="LATA"><a title="Rate centres in LATA 250" href="lca_listexch.php?lata=250">250</a></td>
+	          <td headers="effdate" data-label="Effective date"><a title="Effective date">2016-06-05</a>&#160;</td>
+          <td headers="discdate" data-label="Disconnect date"><a title="Scheduled disconnection date">&#160;</a>
+      </td>
+      	    <td headers="map" data-label="Map"><a title="Map of Whitmell, VA" href="http://maps.google.ca/local?f=q&amp;h1=en&amp;z=9&amp;q=loc:36.71088,-79.526573">map</a></td>
+       </tr>
+        <tr>
+          <td headers="npanxx" data-label="NPA-NXX"><a title="Local prefixes for Whitmell VA" href="lprefix.php?exch=205110">434-201</a>
+          </td><td headers="block" data-label="Block">9</td>
+      	    <td headers="exchange" data-label="Rate centre"><a title="Local rate centres for Whitmell VA" href="lca_exch.php?exch=205110">Whitmell</a></td>
+	    <td headers="oregion" data-label="Region"><a title="Rate centres in VA" href="lca_listexch.php?region=VA">VA</a></td>
+      	      <td headers="oswitch" data-label="Switch"><a title="Prefixes for switch " href="/lca_prefix.php?switch="/>&#160;</td>
+		      <td headers="oocn" data-label="OCN"><a title="Prefixes assigned to 5562 METRO PCS, INC." href="/lca_prefix.php?ocn=5562">5562 METRO PCS, INC.</a></td>
+		      <td headers="olata" data-label="LATA"><a title="Rate centres in LATA 250" href="lca_listexch.php?lata=250">250</a></td>
+	          <td headers="effdate" data-label="Effective date"><a title="Effective date">2016-06-12</a>&#160;</td>
+          <td headers="discdate" data-label="Disconnect date"><a title="Scheduled disconnection date">&#160;</a>
+      </td>
+      	    <td headers="map" data-label="Map">&#160;</td>
+     </tr>
+        <tr>
+          <td headers="npanxx" data-label="NPA-NXX"><a title="Local prefixes for Charlottesville VA" href="lprefix.php?exch=202200">434-202</a>
+          </td><td headers="block" data-label="Block">A</td>
+      	    <td headers="exchange" data-label="Rate centre"><a title="Local rate centres for Charlottesville VA" href="lca_exch.php?exch=202200">Charlottesville</a></td>
+	    <td headers="oregion" data-label="Region"><a title="Rate centres in VA" href="lca_listexch.php?region=VA">VA</a></td>
+      	      <td headers="oswitch" data-label="Switch"><a title="Prefixes for switch CHVLVAXAXLX" href="/lca_prefix.php?switch=CHVLVAXAXLX">CHVLVAXAXLX</a>&#160;</td>
+		      <td headers="oocn" data-label="OCN"><a title="Prefixes assigned to 7773 COMCAST PHONE OF VIRGINIA, INC. - VA" href="/lca_prefix.php?ocn=7773">7773 COMCAST PHONE OF VIRGINIA, INC. - VA</a></td>
+		      <td headers="olata" data-label="LATA"><a title="Rate centres in LATA 928" href="lca_listexch.php?lata=928">928</a></td>
+	          <td headers="effdate" data-label="Effective date"><a title="Effective date">2007-05-04</a>&#160;</td>
+          <td headers="discdate" data-label="Disconnect date"><a title="Scheduled disconnection date">&#160;</a>
+      </td>
+      	    <td headers="map" data-label="Map"><a title="Map of Charlottesville, VA" href="http://maps.google.ca/local?f=q&amp;h1=en&amp;z=9&amp;q=loc:38.033326,-78.491902">map</a></td>
+       </tr>
+        <tr>
+          <td headers="npanxx" data-label="NPA-NXX"><a title="Local prefixes for Charlottesville VA" href="lprefix.php?exch=202200">434-202</a>
+          </td><td headers="block" data-label="Block">0</td>
+      	    <td headers="exchange" data-label="Rate centre"><a title="Local rate centres for Charlottesville VA" href="lca_exch.php?exch=202200">Charlottesville</a></td>
+	    <td headers="oregion" data-label="Region"><a title="Rate centres in VA" href="lca_listexch.php?region=VA">VA</a></td>
+      	      <td headers="oswitch" data-label="Switch"><a title="Prefixes for switch " href="/lca_prefix.php?switch="/>&#160;</td>
+		      <td headers="oocn" data-label="OCN"><a title="Prefixes assigned to 7773 COMCAST PHONE OF VIRGINIA, INC. - VA" href="/lca_prefix.php?ocn=7773">7773 COMCAST PHONE OF VIRGINIA, INC. - VA</a></td>
+		      <td headers="olata" data-label="LATA"><a title="Rate centres in LATA 928" href="lca_listexch.php?lata=928">928</a></td>
+	          <td headers="effdate" data-label="Effective date"><a title="Effective date">2007-05-04</a>&#160;</td>
+          <td headers="discdate" data-label="Disconnect date"><a title="Scheduled disconnection date">&#160;</a>
+      </td>
+      	    <td headers="map" data-label="Map">&#160;</td>
+     </tr>
+        <tr>
+          <td headers="npanxx" data-label="NPA-NXX"><a title="Local prefixes for Charlottesville VA" href="lprefix.php?exch=202200">434-202</a>
+          </td><td headers="block" data-label="Block">1</td>
+      	    <td headers="exchange" data-label="Rate centre"><a title="Local rate centres for Charlottesville VA" href="lca_exch.php?exch=202200">Charlottesville</a></td>
+	    <td headers="oregion" data-label="Region"><a title="Rate centres in VA" href="lca_listexch.php?region=VA">VA</a></td>
+      	      <td headers="oswitch" data-label="Switch"><a title="Prefixes for switch " href="/lca_prefix.php?switch="/>&#160;</td>
+		      <td headers="oocn" data-label="OCN"><a title="Prefixes assigned to 7773 COMCAST PHONE OF VIRGINIA, INC. - VA" href="/lca_prefix.php?ocn=7773">7773 COMCAST PHONE OF VIRGINIA, INC. - VA</a></td>
+		      <td headers="olata" data-label="LATA"><a title="Rate centres in LATA 928" href="lca_listexch.php?lata=928">928</a></td>
+	          <td headers="effdate" data-label="Effective date"><a title="Effective date">2008-09-05</a>&#160;</td>
+          <td headers="discdate" data-label="Disconnect date"><a title="Scheduled disconnection date">&#160;</a>
+      </td>
+      	    <td headers="map" data-label="Map">&#160;</td>
+     </tr>
+        <tr>
+          <td headers="npanxx" data-label="NPA-NXX"><a title="Local prefixes for Charlottesville VA" href="lprefix.php?exch=202200">434-202</a>
+          </td><td headers="block" data-label="Block">2</td>
+      	    <td headers="exchange" data-label="Rate centre"><a title="Local rate centres for Charlottesville VA" href="lca_exch.php?exch=202200">Charlottesville</a></td>
+	    <td headers="oregion" data-label="Region"><a title="Rate centres in VA" href="lca_listexch.php?region=VA">VA</a></td>
+      	      <td headers="oswitch" data-label="Switch"><a title="Prefixes for switch " href="/lca_prefix.php?switch="/>&#160;</td>
+		      <td headers="oocn" data-label="OCN"><a title="Prefixes assigned to 7773 COMCAST PHONE OF VIRGINIA, INC. - VA" href="/lca_prefix.php?ocn=7773">7773 COMCAST PHONE OF VIRGINIA, INC. - VA</a></td>
+		      <td headers="olata" data-label="LATA"><a title="Rate centres in LATA 928" href="lca_listexch.php?lata=928">928</a></td>
+	          <td headers="effdate" data-label="Effective date"><a title="Effective date">2009-09-11</a>&#160;</td>
+          <td headers="discdate" data-label="Disconnect date"><a title="Scheduled disconnection date">&#160;</a>
+      </td>
+      	    <td headers="map" data-label="Map">&#160;</td>
+     </tr>
+        <tr>
+          <td headers="npanxx" data-label="NPA-NXX"><a title="Local prefixes for Charlottesville VA" href="lprefix.php?exch=202200">434-202</a>
+          </td><td headers="block" data-label="Block">3</td>
+      	    <td headers="exchange" data-label="Rate centre"><a title="Local rate centres for Charlottesville VA" href="lca_exch.php?exch=202200">Charlottesville</a></td>
+	    <td headers="oregion" data-label="Region"><a title="Rate centres in VA" href="lca_listexch.php?region=VA">VA</a></td>
+      	      <td headers="oswitch" data-label="Switch"><a title="Prefixes for switch " href="/lca_prefix.php?switch="/>&#160;</td>
+		      <td headers="oocn" data-label="OCN"><a title="Prefixes assigned to 079F BANDWIDTH.COM CLEC, LLC - VA                    " href="/lca_prefix.php?ocn=079F">079F BANDWIDTH.COM CLEC, LLC - VA                    </a></td>
+		      <td headers="olata" data-label="LATA"><a title="Rate centres in LATA 928" href="lca_listexch.php?lata=928">928</a></td>
+	          <td headers="effdate" data-label="Effective date"><a title="Effective date">2010-06-25</a>&#160;</td>
+          <td headers="discdate" data-label="Disconnect date"><a title="Scheduled disconnection date">&#160;</a>
+      </td>
+      	    <td headers="map" data-label="Map">&#160;</td>
+     </tr>
+        <tr>
+          <td headers="npanxx" data-label="NPA-NXX"><a title="Local prefixes for Charlottesville VA" href="lprefix.php?exch=202200">434-202</a>
+          </td><td headers="block" data-label="Block">4</td>
+      	    <td headers="exchange" data-label="Rate centre"><a title="Local rate centres for Charlottesville VA" href="lca_exch.php?exch=202200">Charlottesville</a></td>
+	    <td headers="oregion" data-label="Region"><a title="Rate centres in VA" href="lca_listexch.php?region=VA">VA</a></td>
+      	      <td headers="oswitch" data-label="Switch"><a title="Prefixes for switch " href="/lca_prefix.php?switch="/>&#160;</td>
+		      <td headers="oocn" data-label="OCN"><a title="Prefixes assigned to 079F BANDWIDTH.COM CLEC, LLC - VA                    " href="/lca_prefix.php?ocn=079F">079F BANDWIDTH.COM CLEC, LLC - VA                    </a></td>
+		      <td headers="olata" data-label="LATA"><a title="Rate centres in LATA 928" href="lca_listexch.php?lata=928">928</a></td>
+	          <td headers="effdate" data-label="Effective date"><a title="Effective date">2010-02-28</a>&#160;</td>
+          <td headers="discdate" data-label="Disconnect date"><a title="Scheduled disconnection date">&#160;</a>
+      </td>
+      	    <td headers="map" data-label="Map">&#160;</td>
+     </tr>
+        <tr>
+          <td headers="npanxx" data-label="NPA-NXX"><a title="Local prefixes for Charlottesville VA" href="lprefix.php?exch=202200">434-202</a>
+          </td><td headers="block" data-label="Block">5</td>
+      	    <td headers="exchange" data-label="Rate centre"><a title="Local rate centres for Charlottesville VA" href="lca_exch.php?exch=202200">Charlottesville</a></td>
+	    <td headers="oregion" data-label="Region"><a title="Rate centres in VA" href="lca_listexch.php?region=VA">VA</a></td>
+      	      <td headers="oswitch" data-label="Switch"><a title="Prefixes for switch " href="/lca_prefix.php?switch="/>&#160;</td>
+		      <td headers="oocn" data-label="OCN"><a title="Prefixes assigned to 8825 LEVEL 3 COMMUNICATIONS, LLC - VA" href="/lca_prefix.php?ocn=8825">8825 LEVEL 3 COMMUNICATIONS, LLC - VA</a></td>
+		      <td headers="olata" data-label="LATA"><a title="Rate centres in LATA 928" href="lca_listexch.php?lata=928">928</a></td>
+	          <td headers="effdate" data-label="Effective date"><a title="Effective date">2007-12-03</a>&#160;</td>
+          <td headers="discdate" data-label="Disconnect date"><a title="Scheduled disconnection date">&#160;</a>
+      </td>
+      	    <td headers="map" data-label="Map">&#160;</td>
+     </tr>
+        <tr>
+          <td headers="npanxx" data-label="NPA-NXX"><a title="Local prefixes for Charlottesville VA" href="lprefix.php?exch=202200">434-202</a>
+          </td><td headers="block" data-label="Block">6</td>
+      	    <td headers="exchange" data-label="Rate centre"><a title="Local rate centres for Charlottesville VA" href="lca_exch.php?exch=202200">Charlottesville</a></td>
+	    <td headers="oregion" data-label="Region"><a title="Rate centres in VA" href="lca_listexch.php?region=VA">VA</a></td>
+      	      <td headers="oswitch" data-label="Switch"><a title="Prefixes for switch " href="/lca_prefix.php?switch="/>&#160;</td>
+		      <td headers="oocn" data-label="OCN"><a title="Prefixes assigned to 079F BANDWIDTH.COM CLEC, LLC - VA                    " href="/lca_prefix.php?ocn=079F">079F BANDWIDTH.COM CLEC, LLC - VA                    </a></td>
+		      <td headers="olata" data-label="LATA"><a title="Rate centres in LATA 928" href="lca_listexch.php?lata=928">928</a></td>
+	          <td headers="effdate" data-label="Effective date"><a title="Effective date">2010-05-30</a>&#160;</td>
+          <td headers="discdate" data-label="Disconnect date"><a title="Scheduled disconnection date">&#160;</a>
+      </td>
+      	    <td headers="map" data-label="Map">&#160;</td>
+     </tr>
+        <tr>
+          <td headers="npanxx" data-label="NPA-NXX"><a title="Local prefixes for Charlottesville VA" href="lprefix.php?exch=202200">434-202</a>
+          </td><td headers="block" data-label="Block">7</td>
+      	    <td headers="exchange" data-label="Rate centre"><a title="Local rate centres for Charlottesville VA" href="lca_exch.php?exch=202200">Charlottesville</a></td>
+	    <td headers="oregion" data-label="Region"><a title="Rate centres in VA" href="lca_listexch.php?region=VA">VA</a></td>
+      	      <td headers="oswitch" data-label="Switch"><a title="Prefixes for switch " href="/lca_prefix.php?switch="/>&#160;</td>
+		      <td headers="oocn" data-label="OCN"><a title="Prefixes assigned to 7773 COMCAST PHONE OF VIRGINIA, INC. - VA" href="/lca_prefix.php?ocn=7773">7773 COMCAST PHONE OF VIRGINIA, INC. - VA</a></td>
+		      <td headers="olata" data-label="LATA"><a title="Rate centres in LATA 928" href="lca_listexch.php?lata=928">928</a></td>
+	          <td headers="effdate" data-label="Effective date"><a title="Effective date">2010-06-26</a>&#160;</td>
+          <td headers="discdate" data-label="Disconnect date"><a title="Scheduled disconnection date">&#160;</a>
+      </td>
+      	    <td headers="map" data-label="Map">&#160;</td>
+     </tr>
+        <tr>
+          <td headers="npanxx" data-label="NPA-NXX"><a title="Local prefixes for Charlottesville VA" href="lprefix.php?exch=202200">434-202</a>
+          </td><td headers="block" data-label="Block">8</td>
+      	    <td headers="exchange" data-label="Rate centre"><a title="Local rate centres for Charlottesville VA" href="lca_exch.php?exch=202200">Charlottesville</a></td>
+	    <td headers="oregion" data-label="Region"><a title="Rate centres in VA" href="lca_listexch.php?region=VA">VA</a></td>
+      	      <td headers="oswitch" data-label="Switch"><a title="Prefixes for switch " href="/lca_prefix.php?switch="/>&#160;</td>
+		      <td headers="oocn" data-label="OCN"><a title="Prefixes assigned to 7773 COMCAST PHONE OF VIRGINIA, INC. - VA" href="/lca_prefix.php?ocn=7773">7773 COMCAST PHONE OF VIRGINIA, INC. - VA</a></td>
+		      <td headers="olata" data-label="LATA"><a title="Rate centres in LATA 928" href="lca_listexch.php?lata=928">928</a></td>
+	          <td headers="effdate" data-label="Effective date"><a title="Effective date">2008-05-11</a>&#160;</td>
+          <td headers="discdate" data-label="Disconnect date"><a title="Scheduled disconnection date">&#160;</a>
+      </td>
+      	    <td headers="map" data-label="Map">&#160;</td>
+     </tr>
+        <tr>
+          <td headers="npanxx" data-label="NPA-NXX"><a title="Local prefixes for Charlottesville VA" href="lprefix.php?exch=202200">434-202</a>
+          </td><td headers="block" data-label="Block">9</td>
+      	    <td headers="exchange" data-label="Rate centre"><a title="Local rate centres for Charlottesville VA" href="lca_exch.php?exch=202200">Charlottesville</a></td>
+	    <td headers="oregion" data-label="Region"><a title="Rate centres in VA" href="lca_listexch.php?region=VA">VA</a></td>
+      	      <td headers="oswitch" data-label="Switch"><a title="Prefixes for switch " href="/lca_prefix.php?switch="/>&#160;</td>
+		      <td headers="oocn" data-label="OCN"><a title="Prefixes assigned to 6855 OMNIPOINT COMMUNICATIONS CAP OPERATIONS, LLC" href="/lca_prefix.php?ocn=6855">6855 OMNIPOINT COMMUNICATIONS CAP OPERATIONS, LLC</a></td>
+		      <td headers="olata" data-label="LATA"><a title="Rate centres in LATA 928" href="lca_listexch.php?lata=928">928</a></td>
+	          <td headers="effdate" data-label="Effective date"><a title="Effective date">2009-02-12</a>&#160;</td>
+          <td headers="discdate" data-label="Disconnect date"><a title="Scheduled disconnection date">&#160;</a>
+      </td>
+      	    <td headers="map" data-label="Map">&#160;</td>
+     </tr>
+        <tr>
+          <td headers="npanxx" data-label="NPA-NXX"><a title="Local prefixes for Danville VA" href="lprefix.php?exch=202560">434-203</a>
+          </td><td headers="block" data-label="Block">A</td>
+      	    <td headers="exchange" data-label="Rate centre"><a title="Local rate centres for Danville VA" href="lca_exch.php?exch=202560">Danville</a></td>
+	    <td headers="oregion" data-label="Region"><a title="Rate centres in VA" href="lca_listexch.php?region=VA">VA</a></td>
+      	      <td headers="oswitch" data-label="Switch"><a title="Prefixes for switch DAVLVADU2MD" href="/lca_prefix.php?switch=DAVLVADU2MD">DAVLVADU2MD</a>&#160;</td>
+		      <td headers="oocn" data-label="OCN"><a title="Prefixes assigned to 4036 NEW CINGULAR WIRELESS PCS, LLC - DC" href="/lca_prefix.php?ocn=4036">4036 NEW CINGULAR WIRELESS PCS, LLC - DC</a></td>
+		      <td headers="olata" data-label="LATA"><a title="Rate centres in LATA 250" href="lca_listexch.php?lata=250">250</a></td>
+	          <td headers="effdate" data-label="Effective date"><a title="Effective date"/>&#160;</td>
+          <td headers="discdate" data-label="Disconnect date"><a title="Scheduled disconnection date">&#160;</a>
+      </td>
+      	    <td headers="map" data-label="Map"><a title="Map of Danville, VA" href="http://maps.google.ca/local?f=q&amp;h1=en&amp;z=9&amp;q=loc:36.58127,-79.392712">map</a></td>
+       </tr>
+        <tr>
+          <td headers="npanxx" data-label="NPA-NXX"><a title="Local prefixes for Crozet VA" href="lprefix.php?exch=202480">434-205</a>
+          </td><td headers="block" data-label="Block">A</td>
+      	    <td headers="exchange" data-label="Rate centre"><a title="Local rate centres for Crozet VA" href="lca_exch.php?exch=202480">Crozet</a></td>
+	    <td headers="oregion" data-label="Region"><a title="Rate centres in VA" href="lca_listexch.php?region=VA">VA</a></td>
+      	      <td headers="oswitch" data-label="Switch"><a title="Prefixes for switch CHVLVACFDS0" href="/lca_prefix.php?switch=CHVLVACFDS0">CHVLVACFDS0</a>&#160;</td>
+		      <td headers="oocn" data-label="OCN"><a title="Prefixes assigned to 4860 TELCOVE OF VIRGINIA, LLC - VA" href="/lca_prefix.php?ocn=4860">4860 TELCOVE OF VIRGINIA, LLC - VA</a></td>
+		      <td headers="olata" data-label="LATA"><a title="Rate centres in LATA 928" href="lca_listexch.php?lata=928">928</a></td>
+	          <td headers="effdate" data-label="Effective date"><a title="Effective date"/>&#160;</td>
+          <td headers="discdate" data-label="Disconnect date"><a title="Scheduled disconnection date">&#160;</a>
+      </td>
+      	    <td headers="map" data-label="Map"><a title="Map of Crozet, VA" href="http://maps.google.ca/local?f=q&amp;h1=en&amp;z=9&amp;q=loc:38.066176,-78.701728">map</a></td>
+       </tr>
+        <tr>
+          <td headers="npanxx" data-label="NPA-NXX"><a title="Local prefixes for Crozet VA" href="lprefix.php?exch=202480">434-205</a>
+          </td><td headers="block" data-label="Block">0</td>
+      	    <td headers="exchange" data-label="Rate centre"><a title="Local rate centres for Crozet VA" href="lca_exch.php?exch=202480">Crozet</a></td>
+	    <td headers="oregion" data-label="Region"><a title="Rate centres in VA" href="lca_listexch.php?region=VA">VA</a></td>
+      	      <td headers="oswitch" data-label="Switch"><a title="Prefixes for switch " href="/lca_prefix.php?switch="/>&#160;</td>
+		      <td headers="oocn" data-label="OCN"><a title="Prefixes assigned to 079F BANDWIDTH.COM CLEC, LLC - VA                    " href="/lca_prefix.php?ocn=079F">079F BANDWIDTH.COM CLEC, LLC - VA                    </a></td>
+		      <td headers="olata" data-label="LATA"><a title="Rate centres in LATA 928" href="lca_listexch.php?lata=928">928</a></td>
+	          <td headers="effdate" data-label="Effective date"><a title="Effective date">2012-07-07</a>&#160;</td>
+          <td headers="discdate" data-label="Disconnect date"><a title="Scheduled disconnection date">&#160;</a>
+      </td>
+      	    <td headers="map" data-label="Map">&#160;</td>
+     </tr>
+        <tr>
+          <td headers="npanxx" data-label="NPA-NXX"><a title="Local prefixes for Crozet VA" href="lprefix.php?exch=202480">434-205</a>
+          </td><td headers="block" data-label="Block">1</td>
+      	    <td headers="exchange" data-label="Rate centre"><a title="Local rate centres for Crozet VA" href="lca_exch.php?exch=202480">Crozet</a></td>
+	    <td headers="oregion" data-label="Region"><a title="Rate centres in VA" href="lca_listexch.php?region=VA">VA</a></td>
+      	      <td headers="oswitch" data-label="Switch"><a title="Prefixes for switch " href="/lca_prefix.php?switch="/>&#160;</td>
+		      <td headers="oocn" data-label="OCN"><a title="Prefixes assigned to 079F BANDWIDTH.COM CLEC, LLC - VA                    " href="/lca_prefix.php?ocn=079F">079F BANDWIDTH.COM CLEC, LLC - VA                    </a></td>
+		      <td headers="olata" data-label="LATA"><a title="Rate centres in LATA 928" href="lca_listexch.php?lata=928">928</a></td>
+	          <td headers="effdate" data-label="Effective date"><a title="Effective date">2014-07-27</a>&#160;</td>
+          <td headers="discdate" data-label="Disconnect date"><a title="Scheduled disconnection date">&#160;</a>
+      </td>
+      	    <td headers="map" data-label="Map">&#160;</td>
+     </tr>
+        <tr>
+          <td headers="npanxx" data-label="NPA-NXX"><a title="Local prefixes for Crozet VA" href="lprefix.php?exch=202480">434-205</a>
+          </td><td headers="block" data-label="Block">2</td>
+      	    <td headers="exchange" data-label="Rate centre"><a title="Local rate centres for Crozet VA" href="lca_exch.php?exch=202480">Crozet</a></td>
+	    <td headers="oregion" data-label="Region"><a title="Rate centres in VA" href="lca_listexch.php?region=VA">VA</a></td>
+      	      <td headers="oswitch" data-label="Switch"><a title="Prefixes for switch " href="/lca_prefix.php?switch="/>&#160;</td>
+		      <td headers="oocn" data-label="OCN"><a title="Prefixes assigned to 8357 US LEC OF VIRGINIA, LLC" href="/lca_prefix.php?ocn=8357">8357 US LEC OF VIRGINIA, LLC</a></td>
+		      <td headers="olata" data-label="LATA"><a title="Rate centres in LATA 928" href="lca_listexch.php?lata=928">928</a></td>
+	          <td headers="effdate" data-label="Effective date"><a title="Effective date">2014-11-05</a>&#160;</td>
+          <td headers="discdate" data-label="Disconnect date"><a title="Scheduled disconnection date">&#160;</a>
+      </td>
+      	    <td headers="map" data-label="Map">&#160;</td>
+     </tr>
+        <tr>
+          <td headers="npanxx" data-label="NPA-NXX"><a title="Local prefixes for Crozet VA" href="lprefix.php?exch=202480">434-205</a>
+          </td><td headers="block" data-label="Block">3</td>
+      	    <td headers="exchange" data-label="Rate centre"><a title="Local rate centres for Crozet VA" href="lca_exch.php?exch=202480">Crozet</a></td>
+	    <td headers="oregion" data-label="Region"><a title="Rate centres in VA" href="lca_listexch.php?region=VA">VA</a></td>
+      	      <td headers="oswitch" data-label="Switch"><a title="Prefixes for switch " href="/lca_prefix.php?switch="/>&#160;</td>
+		      <td headers="oocn" data-label="OCN"><a title="Prefixes assigned to 275G PEERLESS NETWORK OF VIRGINIA, LLC - VA            " href="/lca_prefix.php?ocn=275G">275G PEERLESS NETWORK OF VIRGINIA, LLC - VA            </a></td>
+		      <td headers="olata" data-label="LATA"><a title="Rate centres in LATA 928" href="lca_listexch.php?lata=928">928</a></td>
+	          <td headers="effdate" data-label="Effective date"><a title="Effective date">2016-01-16</a>&#160;</td>
+          <td headers="discdate" data-label="Disconnect date"><a title="Scheduled disconnection date">&#160;</a>
+      </td>
+      	    <td headers="map" data-label="Map">&#160;</td>
+     </tr>
+        <tr>
+          <td headers="npanxx" data-label="NPA-NXX"><a title="Local prefixes for Crozet VA" href="lprefix.php?exch=202480">434-205</a>
+          </td><td headers="block" data-label="Block">4</td>
+      	    <td headers="exchange" data-label="Rate centre"><a title="Local rate centres for Crozet VA" href="lca_exch.php?exch=202480">Crozet</a></td>
+	    <td headers="oregion" data-label="Region"><a title="Rate centres in VA" href="lca_listexch.php?region=VA">VA</a></td>
+      	      <td headers="oswitch" data-label="Switch"><a title="Prefixes for switch " href="/lca_prefix.php?switch="/>&#160;</td>
+		      <td headers="oocn" data-label="OCN"><a title="Prefixes assigned to 7773 COMCAST PHONE OF VIRGINIA, INC. - VA" href="/lca_prefix.php?ocn=7773">7773 COMCAST PHONE OF VIRGINIA, INC. - VA</a></td>
+		      <td headers="olata" data-label="LATA"><a title="Rate centres in LATA 928" href="lca_listexch.php?lata=928">928</a></td>
+	          <td headers="effdate" data-label="Effective date"><a title="Effective date">2007-05-05</a>&#160;</td>
+          <td headers="discdate" data-label="Disconnect date"><a title="Scheduled disconnection date">&#160;</a>
+      </td>
+      	    <td headers="map" data-label="Map">&#160;</td>
+     </tr>
+        <tr>
+          <td headers="npanxx" data-label="NPA-NXX"><a title="Local prefixes for Crozet VA" href="lprefix.php?exch=202480">434-205</a>
+          </td><td headers="block" data-label="Block">5</td>
+      	    <td headers="exchange" data-label="Rate centre"><a title="Local rate centres for Crozet VA" href="lca_exch.php?exch=202480">Crozet</a></td>
+	    <td headers="oregion" data-label="Region"><a title="Rate centres in VA" href="lca_listexch.php?region=VA">VA</a></td>
+      	      <td headers="oswitch" data-label="Switch"><a title="Prefixes for switch " href="/lca_prefix.php?switch="/>&#160;</td>
+		      <td headers="oocn" data-label="OCN"><a title="Prefixes assigned to 4860 TELCOVE OF VIRGINIA, LLC - VA" href="/lca_prefix.php?ocn=4860">4860 TELCOVE OF VIRGINIA, LLC - VA</a></td>
+		      <td headers="olata" data-label="LATA"><a title="Rate centres in LATA 928" href="lca_listexch.php?lata=928">928</a></td>
+	          <td headers="effdate" data-label="Effective date"><a title="Effective date"/>&#160;</td>
+          <td headers="discdate" data-label="Disconnect date"><a title="Scheduled disconnection date">&#160;</a>
+      </td>
+      	    <td headers="map" data-label="Map">&#160;</td>
+     </tr>
+        <tr>
+          <td headers="npanxx" data-label="NPA-NXX"><a title="Local prefixes for Crozet VA" href="lprefix.php?exch=202480">434-205</a>
+          </td><td headers="block" data-label="Block">7</td>
+      	    <td headers="exchange" data-label="Rate centre"><a title="Local rate centres for Crozet VA" href="lca_exch.php?exch=202480">Crozet</a></td>
+	    <td headers="oregion" data-label="Region"><a title="Rate centres in VA" href="lca_listexch.php?region=VA">VA</a></td>
+      	      <td headers="oswitch" data-label="Switch"><a title="Prefixes for switch " href="/lca_prefix.php?switch="/>&#160;</td>
+		      <td headers="oocn" data-label="OCN"><a title="Prefixes assigned to 7575 CENTURYLINK COMMUNICATIONS LLC                    " href="/lca_prefix.php?ocn=7575">7575 CENTURYLINK COMMUNICATIONS LLC                    </a></td>
+		      <td headers="olata" data-label="LATA"><a title="Rate centres in LATA 928" href="lca_listexch.php?lata=928">928</a></td>
+	          <td headers="effdate" data-label="Effective date"><a title="Effective date">2013-10-11</a>&#160;</td>
+          <td headers="discdate" data-label="Disconnect date"><a title="Scheduled disconnection date">&#160;</a>
+      </td>
+      	    <td headers="map" data-label="Map">&#160;</td>
+     </tr>
+        <tr>
+          <td headers="npanxx" data-label="NPA-NXX"><a title="Local prefixes for Palmyra VA" href="lprefix.php?exch=204180">434-207</a>
+          </td><td headers="block" data-label="Block">A</td>
+      	    <td headers="exchange" data-label="Rate centre"><a title="Local rate centres for Palmyra VA" href="lca_exch.php?exch=204180">Palmyra</a></td>
+	    <td headers="oregion" data-label="Region"><a title="Rate centres in VA" href="lca_listexch.php?region=VA">VA</a></td>
+      	      <td headers="oswitch" data-label="Switch"><a title="Prefixes for switch CHVLVACFDS0" href="/lca_prefix.php?switch=CHVLVACFDS0">CHVLVACFDS0</a>&#160;</td>
+		      <td headers="oocn" data-label="OCN"><a title="Prefixes assigned to 4860 TELCOVE OF VIRGINIA, LLC - VA" href="/lca_prefix.php?ocn=4860">4860 TELCOVE OF VIRGINIA, LLC - VA</a></td>
+		      <td headers="olata" data-label="LATA"><a title="Rate centres in LATA 928" href="lca_listexch.php?lata=928">928</a></td>
+	          <td headers="effdate" data-label="Effective date"><a title="Effective date"/>&#160;</td>
+          <td headers="discdate" data-label="Disconnect date"><a title="Scheduled disconnection date">&#160;</a>
+      </td>
+      	    <td headers="map" data-label="Map"><a title="Map of Palmyra, VA" href="http://maps.google.ca/local?f=q&amp;h1=en&amp;z=9&amp;q=loc:37.860386,-78.267979">map</a></td>
+       </tr>
+        <tr>
+          <td headers="npanxx" data-label="NPA-NXX"><a title="Local prefixes for Palmyra VA" href="lprefix.php?exch=204180">434-207</a>
+          </td><td headers="block" data-label="Block">0</td>
+      	    <td headers="exchange" data-label="Rate centre"><a title="Local rate centres for Palmyra VA" href="lca_exch.php?exch=204180">Palmyra</a></td>
+	    <td headers="oregion" data-label="Region"><a title="Rate centres in VA" href="lca_listexch.php?region=VA">VA</a></td>
+      	      <td headers="oswitch" data-label="Switch"><a title="Prefixes for switch " href="/lca_prefix.php?switch="/>&#160;</td>
+		      <td headers="oocn" data-label="OCN"><a title="Prefixes assigned to 4860 TELCOVE OF VIRGINIA, LLC - VA" href="/lca_prefix.php?ocn=4860">4860 TELCOVE OF VIRGINIA, LLC - VA</a></td>
+		      <td headers="olata" data-label="LATA"><a title="Rate centres in LATA 928" href="lca_listexch.php?lata=928">928</a></td>
+	          <td headers="effdate" data-label="Effective date"><a title="Effective date"/>&#160;</td>
+          <td headers="discdate" data-label="Disconnect date"><a title="Scheduled disconnection date">&#160;</a>
+      </td>
+      	    <td headers="map" data-label="Map">&#160;</td>
+     </tr>
+        <tr>
+          <td headers="npanxx" data-label="NPA-NXX"><a title="Local prefixes for Palmyra VA" href="lprefix.php?exch=204180">434-207</a>
+          </td><td headers="block" data-label="Block">2</td>
+      	    <td headers="exchange" data-label="Rate centre"><a title="Local rate centres for Palmyra VA" href="lca_exch.php?exch=204180">Palmyra</a></td>
+	    <td headers="oregion" data-label="Region"><a title="Rate centres in VA" href="lca_listexch.php?region=VA">VA</a></td>
+      	      <td headers="oswitch" data-label="Switch"><a title="Prefixes for switch " href="/lca_prefix.php?switch="/>&#160;</td>
+		      <td headers="oocn" data-label="OCN"><a title="Prefixes assigned to 079F BANDWIDTH.COM CLEC, LLC - VA                    " href="/lca_prefix.php?ocn=079F">079F BANDWIDTH.COM CLEC, LLC - VA                    </a></td>
+		      <td headers="olata" data-label="LATA"><a title="Rate centres in LATA 928" href="lca_listexch.php?lata=928">928</a></td>
+	          <td headers="effdate" data-label="Effective date"><a title="Effective date">2010-11-20</a>&#160;</td>
+          <td headers="discdate" data-label="Disconnect date"><a title="Scheduled disconnection date">&#160;</a>
+      </td>
+      	    <td headers="map" data-label="Map">&#160;</td>
+     </tr>
+        <tr>
+          <td headers="npanxx" data-label="NPA-NXX"><a title="Local prefixes for Palmyra VA" href="lprefix.php?exch=204180">434-207</a>
+          </td><td headers="block" data-label="Block">3</td>
+      	    <td headers="exchange" data-label="Rate centre"><a title="Local rate centres for Palmyra VA" href="lca_exch.php?exch=204180">Palmyra</a></td>
+	    <td headers="oregion" data-label="Region"><a title="Rate centres in VA" href="lca_listexch.php?region=VA">VA</a></td>
+      	      <td headers="oswitch" data-label="Switch"><a title="Prefixes for switch " href="/lca_prefix.php?switch="/>&#160;</td>
+		      <td headers="oocn" data-label="OCN"><a title="Prefixes assigned to 7773 COMCAST PHONE OF VIRGINIA, INC. - VA" href="/lca_prefix.php?ocn=7773">7773 COMCAST PHONE OF VIRGINIA, INC. - VA</a></td>
+		      <td headers="olata" data-label="LATA"><a title="Rate centres in LATA 928" href="lca_listexch.php?lata=928">928</a></td>
+	          <td headers="effdate" data-label="Effective date"><a title="Effective date">2009-09-15</a>&#160;</td>
+          <td headers="discdate" data-label="Disconnect date"><a title="Scheduled disconnection date">&#160;</a>
+      </td>
+      	    <td headers="map" data-label="Map">&#160;</td>
+     </tr>
+        <tr>
+          <td headers="npanxx" data-label="NPA-NXX"><a title="Local prefixes for Palmyra VA" href="lprefix.php?exch=204180">434-207</a>
+          </td><td headers="block" data-label="Block">4</td>
+      	    <td headers="exchange" data-label="Rate centre"><a title="Local rate centres for Palmyra VA" href="lca_exch.php?exch=204180">Palmyra</a></td>
+	    <td headers="oregion" data-label="Region"><a title="Rate centres in VA" href="lca_listexch.php?region=VA">VA</a></td>
+      	      <td headers="oswitch" data-label="Switch"><a title="Prefixes for switch " href="/lca_prefix.php?switch="/>&#160;</td>
+		      <td headers="oocn" data-label="OCN"><a title="Prefixes assigned to 8825 LEVEL 3 COMMUNICATIONS, LLC - VA" href="/lca_prefix.php?ocn=8825">8825 LEVEL 3 COMMUNICATIONS, LLC - VA</a></td>
+		      <td headers="olata" data-label="LATA"><a title="Rate centres in LATA 928" href="lca_listexch.php?lata=928">928</a></td>
+	          <td headers="effdate" data-label="Effective date"><a title="Effective date">2004-07-02</a>&#160;</td>
+          <td headers="discdate" data-label="Disconnect date"><a title="Scheduled disconnection date">&#160;</a>
+      </td>
+      	    <td headers="map" data-label="Map">&#160;</td>
+     </tr>
+        <tr>
+          <td headers="npanxx" data-label="NPA-NXX"><a title="Local prefixes for Palmyra VA" href="lprefix.php?exch=204180">434-207</a>
+          </td><td headers="block" data-label="Block">5</td>
+      	    <td headers="exchange" data-label="Rate centre"><a title="Local rate centres for Palmyra VA" href="lca_exch.php?exch=204180">Palmyra</a></td>
+	    <td headers="oregion" data-label="Region"><a title="Rate centres in VA" href="lca_listexch.php?region=VA">VA</a></td>
+      	      <td headers="oswitch" data-label="Switch"><a title="Prefixes for switch " href="/lca_prefix.php?switch="/>&#160;</td>
+		      <td headers="oocn" data-label="OCN"><a title="Prefixes assigned to 8825 LEVEL 3 COMMUNICATIONS, LLC - VA" href="/lca_prefix.php?ocn=8825">8825 LEVEL 3 COMMUNICATIONS, LLC - VA</a></td>
+		      <td headers="olata" data-label="LATA"><a title="Rate centres in LATA 928" href="lca_listexch.php?lata=928">928</a></td>
+	          <td headers="effdate" data-label="Effective date"><a title="Effective date">2011-03-27</a>&#160;</td>
+          <td headers="discdate" data-label="Disconnect date"><a title="Scheduled disconnection date">&#160;</a>
+      </td>
+      	    <td headers="map" data-label="Map">&#160;</td>
+     </tr>
+        <tr>
+          <td headers="npanxx" data-label="NPA-NXX"><a title="Local prefixes for Palmyra VA" href="lprefix.php?exch=204180">434-207</a>
+          </td><td headers="block" data-label="Block">6</td>
+      	    <td headers="exchange" data-label="Rate centre"><a title="Local rate centres for Palmyra VA" href="lca_exch.php?exch=204180">Palmyra</a></td>
+	    <td headers="oregion" data-label="Region"><a title="Rate centres in VA" href="lca_listexch.php?region=VA">VA</a></td>
+      	      <td headers="oswitch" data-label="Switch"><a title="Prefixes for switch " href="/lca_prefix.php?switch="/>&#160;</td>
+		      <td headers="oocn" data-label="OCN"><a title="Prefixes assigned to 079F BANDWIDTH.COM CLEC, LLC - VA                    " href="/lca_prefix.php?ocn=079F">079F BANDWIDTH.COM CLEC, LLC - VA                    </a></td>
+		      <td headers="olata" data-label="LATA"><a title="Rate centres in LATA 928" href="lca_listexch.php?lata=928">928</a></td>
+	          <td headers="effdate" data-label="Effective date"><a title="Effective date">2012-06-15</a>&#160;</td>
+          <td headers="discdate" data-label="Disconnect date"><a title="Scheduled disconnection date">&#160;</a>
+      </td>
+      	    <td headers="map" data-label="Map">&#160;</td>
+     </tr>
+        <tr>
+          <td headers="npanxx" data-label="NPA-NXX"><a title="Local prefixes for Palmyra VA" href="lprefix.php?exch=204180">434-207</a>
+          </td><td headers="block" data-label="Block">7</td>
+      	    <td headers="exchange" data-label="Rate centre"><a title="Local rate centres for Palmyra VA" href="lca_exch.php?exch=204180">Palmyra</a></td>
+	    <td headers="oregion" data-label="Region"><a title="Rate centres in VA" href="lca_listexch.php?region=VA">VA</a></td>
+      	      <td headers="oswitch" data-label="Switch"><a title="Prefixes for switch " href="/lca_prefix.php?switch="/>&#160;</td>
+		      <td headers="oocn" data-label="OCN"><a title="Prefixes assigned to 7575 CENTURYLINK COMMUNICATIONS LLC                    " href="/lca_prefix.php?ocn=7575">7575 CENTURYLINK COMMUNICATIONS LLC                    </a></td>
+		      <td headers="olata" data-label="LATA"><a title="Rate centres in LATA 928" href="lca_listexch.php?lata=928">928</a></td>
+	          <td headers="effdate" data-label="Effective date"><a title="Effective date">2013-10-11</a>&#160;</td>
+          <td headers="discdate" data-label="Disconnect date"><a title="Scheduled disconnection date">&#160;</a>
+      </td>
+      	    <td headers="map" data-label="Map">&#160;</td>
+     </tr>
+        <tr>
+          <td headers="npanxx" data-label="NPA-NXX"><a title="Local prefixes for Palmyra VA" href="lprefix.php?exch=204180">434-207</a>
+          </td><td headers="block" data-label="Block">8</td>
+      	    <td headers="exchange" data-label="Rate centre"><a title="Local rate centres for Palmyra VA" href="lca_exch.php?exch=204180">Palmyra</a></td>
+	    <td headers="oregion" data-label="Region"><a title="Rate centres in VA" href="lca_listexch.php?region=VA">VA</a></td>
+      	      <td headers="oswitch" data-label="Switch"><a title="Prefixes for switch " href="/lca_prefix.php?switch="/>&#160;</td>
+		      <td headers="oocn" data-label="OCN"><a title="Prefixes assigned to 079F BANDWIDTH.COM CLEC, LLC - VA                    " href="/lca_prefix.php?ocn=079F">079F BANDWIDTH.COM CLEC, LLC - VA                    </a></td>
+		      <td headers="olata" data-label="LATA"><a title="Rate centres in LATA 928" href="lca_listexch.php?lata=928">928</a></td>
+	          <td headers="effdate" data-label="Effective date"><a title="Effective date">2009-02-13</a>&#160;</td>
+          <td headers="discdate" data-label="Disconnect date"><a title="Scheduled disconnection date">&#160;</a>
+      </td>
+      	    <td headers="map" data-label="Map">&#160;</td>
+     </tr>
+        <tr>
+          <td headers="npanxx" data-label="NPA-NXX"><a title="Local prefixes for Keysville VA" href="lprefix.php?exch=203410">434-208</a>
+          </td><td headers="block" data-label="Block">A</td>
+      	    <td headers="exchange" data-label="Rate centre"><a title="Local rate centres for Keysville VA" href="lca_exch.php?exch=203410">Keysville</a></td>
+	    <td headers="oregion" data-label="Region"><a title="Rate centres in VA" href="lca_listexch.php?region=VA">VA</a></td>
+      	      <td headers="oswitch" data-label="Switch"><a title="Prefixes for switch " href="/lca_prefix.php?switch="/>&#160;</td>
+		      <td headers="oocn" data-label="OCN"><a title="Prefixes assigned to 6283 UNITED STATES CELLULAR CORP. - VIRGINIA" href="/lca_prefix.php?ocn=6283">6283 UNITED STATES CELLULAR CORP. - VIRGINIA</a></td>
+		      <td headers="olata" data-label="LATA"><a title="Rate centres in LATA 248" href="lca_listexch.php?lata=248">248</a></td>
+	          <td headers="effdate" data-label="Effective date"><a title="Effective date">2014-11-14</a>&#160;</td>
+          <td headers="discdate" data-label="Disconnect date"><a title="Scheduled disconnection date">&#160;</a>
+      </td>
+      	    <td headers="map" data-label="Map"><a title="Map of Keysville, VA" href="http://maps.google.ca/local?f=q&amp;h1=en&amp;z=9&amp;q=loc:37.040005,-78.484238">map</a></td>
+       </tr>
+        <tr>
+          <td headers="npanxx" data-label="NPA-NXX"><a title="Local prefixes for Keysville VA" href="lprefix.php?exch=203410">434-208</a>
+          </td><td headers="block" data-label="Block">0</td>
+      	    <td headers="exchange" data-label="Rate centre"><a title="Local rate centres for Keysville VA" href="lca_exch.php?exch=203410">Keysville</a></td>
+	    <td headers="oregion" data-label="Region"><a title="Rate centres in VA" href="lca_listexch.php?region=VA">VA</a></td>
+      	      <td headers="oswitch" data-label="Switch"><a title="Prefixes for switch " href="/lca_prefix.php?switch="/>&#160;</td>
+		      <td headers="oocn" data-label="OCN"><a title="Prefixes assigned to 6283 UNITED STATES CELLULAR CORP. - VIRGINIA" href="/lca_prefix.php?ocn=6283">6283 UNITED STATES CELLULAR CORP. - VIRGINIA</a></td>
+		      <td headers="olata" data-label="LATA"><a title="Rate centres in LATA 248" href="lca_listexch.php?lata=248">248</a></td>
+	          <td headers="effdate" data-label="Effective date"><a title="Effective date">2014-11-14</a>&#160;</td>
+          <td headers="discdate" data-label="Disconnect date"><a title="Scheduled disconnection date">&#160;</a>
+      </td>
+      	    <td headers="map" data-label="Map">&#160;</td>
+     </tr>
+        <tr>
+          <td headers="npanxx" data-label="NPA-NXX"><a title="Local prefixes for Keysville VA" href="lprefix.php?exch=203410">434-208</a>
+          </td><td headers="block" data-label="Block">1</td>
+      	    <td headers="exchange" data-label="Rate centre"><a title="Local rate centres for Keysville VA" href="lca_exch.php?exch=203410">Keysville</a></td>
+	    <td headers="oregion" data-label="Region"><a title="Rate centres in VA" href="lca_listexch.php?region=VA">VA</a></td>
+      	      <td headers="oswitch" data-label="Switch"><a title="Prefixes for switch " href="/lca_prefix.php?switch="/>&#160;</td>
+		      <td headers="oocn" data-label="OCN"><a title="Prefixes assigned to 275G PEERLESS NETWORK OF VIRGINIA, LLC - VA            " href="/lca_prefix.php?ocn=275G">275G PEERLESS NETWORK OF VIRGINIA, LLC - VA            </a></td>
+		      <td headers="olata" data-label="LATA"><a title="Rate centres in LATA 248" href="lca_listexch.php?lata=248">248</a></td>
+	          <td headers="effdate" data-label="Effective date"><a title="Effective date">2015-10-22</a>&#160;</td>
+          <td headers="discdate" data-label="Disconnect date"><a title="Scheduled disconnection date">&#160;</a>
+      </td>
+      	    <td headers="map" data-label="Map">&#160;</td>
+     </tr>
+        <tr>
+          <td headers="npanxx" data-label="NPA-NXX"><a title="Local prefixes for Keysville VA" href="lprefix.php?exch=203410">434-208</a>
+          </td><td headers="block" data-label="Block">2</td>
+      	    <td headers="exchange" data-label="Rate centre"><a title="Local rate centres for Keysville VA" href="lca_exch.php?exch=203410">Keysville</a></td>
+	    <td headers="oregion" data-label="Region"><a title="Rate centres in VA" href="lca_listexch.php?region=VA">VA</a></td>
+      	      <td headers="oswitch" data-label="Switch"><a title="Prefixes for switch " href="/lca_prefix.php?switch="/>&#160;</td>
+		      <td headers="oocn" data-label="OCN"><a title="Prefixes assigned to 431G BROADVOX-CLEC, LLC - VA                           " href="/lca_prefix.php?ocn=431G">431G BROADVOX-CLEC, LLC - VA                           </a></td>
+		      <td headers="olata" data-label="LATA"><a title="Rate centres in LATA 248" href="lca_listexch.php?lata=248">248</a></td>
+	          <td headers="effdate" data-label="Effective date"><a title="Effective date">2016-09-16</a>&#160;</td>
+          <td headers="discdate" data-label="Disconnect date"><a title="Scheduled disconnection date">&#160;</a>
+      </td>
+      	    <td headers="map" data-label="Map">&#160;</td>
+     </tr>
+        <tr>
+          <td headers="npanxx" data-label="NPA-NXX"><a title="Local prefixes for Keysville VA" href="lprefix.php?exch=203410">434-208</a>
+          </td><td headers="block" data-label="Block">3</td>
+      	    <td headers="exchange" data-label="Rate centre"><a title="Local rate centres for Keysville VA" href="lca_exch.php?exch=203410">Keysville</a></td>
+	    <td headers="oregion" data-label="Region"><a title="Rate centres in VA" href="lca_listexch.php?region=VA">VA</a></td>
+      	      <td headers="oswitch" data-label="Switch"><a title="Prefixes for switch " href="/lca_prefix.php?switch="/>&#160;</td>
+		      <td headers="oocn" data-label="OCN"><a title="Prefixes assigned to 431G BROADVOX-CLEC, LLC - VA                           " href="/lca_prefix.php?ocn=431G">431G BROADVOX-CLEC, LLC - VA                           </a></td>
+		      <td headers="olata" data-label="LATA"><a title="Rate centres in LATA 248" href="lca_listexch.php?lata=248">248</a></td>
+	          <td headers="effdate" data-label="Effective date"><a title="Effective date">2016-09-16</a>&#160;</td>
+          <td headers="discdate" data-label="Disconnect date"><a title="Scheduled disconnection date">&#160;</a>
+      </td>
+      	    <td headers="map" data-label="Map">&#160;</td>
+     </tr>
+        <tr>
+          <td headers="npanxx" data-label="NPA-NXX"><a title="Local prefixes for Keysville VA" href="lprefix.php?exch=203410">434-208</a>
+          </td><td headers="block" data-label="Block">8</td>
+      	    <td headers="exchange" data-label="Rate centre"><a title="Local rate centres for Keysville VA" href="lca_exch.php?exch=203410">Keysville</a></td>
+	    <td headers="oregion" data-label="Region"><a title="Rate centres in VA" href="lca_listexch.php?region=VA">VA</a></td>
+      	      <td headers="oswitch" data-label="Switch"><a title="Prefixes for switch " href="/lca_prefix.php?switch="/>&#160;</td>
+		      <td headers="oocn" data-label="OCN"><a title="Prefixes assigned to 6283 UNITED STATES CELLULAR CORP. - VIRGINIA" href="/lca_prefix.php?ocn=6283">6283 UNITED STATES CELLULAR CORP. - VIRGINIA</a></td>
+		      <td headers="olata" data-label="LATA"><a title="Rate centres in LATA 248" href="lca_listexch.php?lata=248">248</a></td>
+	          <td headers="effdate" data-label="Effective date"><a title="Effective date">2015-12-29</a>&#160;</td>
+          <td headers="discdate" data-label="Disconnect date"><a title="Scheduled disconnection date">&#160;</a>
+      </td>
+      	    <td headers="map" data-label="Map">&#160;</td>
+     </tr>
+        <tr>
+          <td headers="npanxx" data-label="NPA-NXX"><a title="Local prefixes for Lynchburg VA" href="lprefix.php?exch=203620">434-209</a>
+          </td><td headers="block" data-label="Block">A</td>
+      	    <td headers="exchange" data-label="Rate centre"><a title="Local rate centres for Lynchburg VA" href="lca_exch.php?exch=203620">Lynchburg</a></td>
+	    <td headers="oregion" data-label="Region"><a title="Rate centres in VA" href="lca_listexch.php?region=VA">VA</a></td>
+      	      <td headers="oswitch" data-label="Switch"><a title="Prefixes for switch LYBGVACHXNX" href="/lca_prefix.php?switch=LYBGVACHXNX">LYBGVACHXNX</a>&#160;</td>
+		      <td headers="oocn" data-label="OCN"><a title="Prefixes assigned to 4644 TELEPORT COMMUNICATIONS AMERICA, LLC - VA         " href="/lca_prefix.php?ocn=4644">4644 TELEPORT COMMUNICATIONS AMERICA, LLC - VA         </a></td>
+		      <td headers="olata" data-label="LATA"><a title="Rate centres in LATA 250" href="lca_listexch.php?lata=250">250</a></td>
+	          <td headers="effdate" data-label="Effective date"><a title="Effective date">2009-08-10</a>&#160;</td>
+          <td headers="discdate" data-label="Disconnect date"><a title="Scheduled disconnection date">&#160;</a>
+      </td>
+      	    <td headers="map" data-label="Map"><a title="Map of Lynchburg, VA" href="http://maps.google.ca/local?f=q&amp;h1=en&amp;z=9&amp;q=loc:37.418771,-79.143094">map</a></td>
+       </tr>
+        <tr>
+          <td headers="npanxx" data-label="NPA-NXX"><a title="Local prefixes for Lynchburg VA" href="lprefix.php?exch=203620">434-209</a>
+          </td><td headers="block" data-label="Block">0</td>
+      	    <td headers="exchange" data-label="Rate centre"><a title="Local rate centres for Lynchburg VA" href="lca_exch.php?exch=203620">Lynchburg</a></td>
+	    <td headers="oregion" data-label="Region"><a title="Rate centres in VA" href="lca_listexch.php?region=VA">VA</a></td>
+      	      <td headers="oswitch" data-label="Switch"><a title="Prefixes for switch " href="/lca_prefix.php?switch="/>&#160;</td>
+		      <td headers="oocn" data-label="OCN"><a title="Prefixes assigned to 6855 OMNIPOINT COMMUNICATIONS CAP OPERATIONS, LLC" href="/lca_prefix.php?ocn=6855">6855 OMNIPOINT COMMUNICATIONS CAP OPERATIONS, LLC</a></td>
+		      <td headers="olata" data-label="LATA"><a title="Rate centres in LATA 250" href="lca_listexch.php?lata=250">250</a></td>
+	          <td headers="effdate" data-label="Effective date"><a title="Effective date">2010-01-15</a>&#160;</td>
+          <td headers="discdate" data-label="Disconnect date"><a title="Scheduled disconnection date">&#160;</a>
+      </td>
+      	    <td headers="map" data-label="Map">&#160;</td>
+     </tr>
+  </tbody>
+  </table>
+ <p>
+<a class="selected">1</a> <a href="/lca_prefix.php?page=2&amp;npa=434">2</a> <a href="/lca_prefix.php?page=3&amp;npa=434">3</a> <a href="/lca_prefix.php?page=4&amp;npa=434">4</a> <a href="/lca_prefix.php?page=5&amp;npa=434">5</a> <a href="/lca_prefix.php?page=6&amp;npa=434">6</a> <a href="/lca_prefix.php?page=7&amp;npa=434">7</a> <a href="/lca_prefix.php?page=8&amp;npa=434">8</a> <a href="/lca_prefix.php?page=9&amp;npa=434">9</a> <a href="/lca_prefix.php?page=10&amp;npa=434">10</a> <a href="/lca_prefix.php?page=11&amp;npa=434">11</a> <a href="/lca_prefix.php?page=12&amp;npa=434">12</a> <a href="/lca_prefix.php?page=13&amp;npa=434">13</a> <a href="/lca_prefix.php?page=14&amp;npa=434">14</a> <a href="/lca_prefix.php?page=15&amp;npa=434">15</a> <a href="/lca_prefix.php?page=16&amp;npa=434">16</a> <a href="/lca_prefix.php?page=17&amp;npa=434">17</a> <a href="/lca_prefix.php?page=18&amp;npa=434">18</a> <a href="/lca_prefix.php?page=19&amp;npa=434">19</a> <a href="/lca_prefix.php?page=20&amp;npa=434">20</a> <a href="/lca_prefix.php?page=21&amp;npa=434">21</a> <a href="/lca_prefix.php?page=22&amp;npa=434">22</a> <a href="/lca_prefix.php?page=23&amp;npa=434">23</a> <a href="/lca_prefix.php?page=24&amp;npa=434">24</a> <a href="/lca_prefix.php?page=25&amp;npa=434">25</a> <a href="/lca_prefix.php?page=26&amp;npa=434">26</a> <a href="/lca_prefix.php?page=27&amp;npa=434">27</a> <a href="/lca_prefix.php?page=28&amp;npa=434">28</a> <a href="/lca_prefix.php?page=29&amp;npa=434">29</a> <a href="/lca_prefix.php?page=30&amp;npa=434">30</a> <a href="/lca_prefix.php?page=31&amp;npa=434">31</a> <a href="/lca_prefix.php?page=32&amp;npa=434">32</a> <a href="/lca_prefix.php?page=33&amp;npa=434">33</a> <a href="/lca_prefix.php?page=34&amp;npa=434">34</a> <a href="/lca_prefix.php?page=35&amp;npa=434">35</a> <a href="/lca_prefix.php?page=36&amp;npa=434">36</a> <a href="/lca_prefix.php?page=37&amp;npa=434">37</a> <a href="/lca_prefix.php?page=38&amp;npa=434">38</a> <a href="/lca_prefix.php?page=39&amp;npa=434">39</a> <a href="/lca_prefix.php?page=40&amp;npa=434">40</a> <a href="/lca_prefix.php?page=41&amp;npa=434">41</a> <a href="/lca_prefix.php?page=42&amp;npa=434">42</a> <a href="/lca_prefix.php?page=43&amp;npa=434">43</a> <a href="/lca_prefix.php?page=44&amp;npa=434">44</a> <a href="/lca_prefix.php?page=45&amp;npa=434">45</a> <a href="/lca_prefix.php?page=2&amp;npa=434">&gt;&gt;</a> 
+</p>
+  <p>Last updated: <strong>Fri, 13 Jan 2017 10:56:44 UTC</strong></p>
+    <p>Sponsored by: <a href="http://www.voipmuch.com/">VoIP Much Phone Company</a></p>
+<p>Like this site? We accept donations via PayPal.</p>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_s-xclick"/>
+<input type="hidden" name="hosted_button_id" value="WAD39TRXXRCXJ"/>
+<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donate_SM.gif" name="submit" alt="PayPal - The safer, easier way to pay online!"/>
+<img alt="" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1"/>
+</form>
+  
+</main>
+</div>
+<footer>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-943522-1";
+urchinTracker();
+</script>
+</footer>
+</body>
+</html>
