@@ -3,7 +3,7 @@ import * as csv2geojson from 'csv2geojson'
 import {Converter} from "./converter"
 
 function main() {
-    fs.readFile("434.html", "utf-8", function (err, data) {
+    fs.readFile("resources/434.html", "utf-8", function (err, data) {
         if (err) throw err
 
         let converter = new Converter()
@@ -17,7 +17,7 @@ function main() {
 
             let json = JSON.stringify(data, null, 2)
             console.log(json)
-            // fs.writeFile("434.json", json)
+            // fs.writeFile("resources/434.json", json)
         });
     })
 }
