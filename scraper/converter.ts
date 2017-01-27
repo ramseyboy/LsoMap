@@ -20,17 +20,17 @@ export class Converter {
             matrix[i] = new Array<string>()
 
             htmlTable(row).find('th').each((j, head) => {
-                let headerText = htmlTable(head).text().trim().replace(/(\r\n|\n|\r)/gm, "")
+                let headerText: string = htmlTable(head).text().trim().replace(/(\r\n|\n|\r)/gm, "")
                 if (headerText === 'Map') {
-                    matrix[i][j] = 'Lat'
-                    matrix[i][j+1] = 'Lng'
+                    matrix[i][j] = 'Latitude'
+                    matrix[i][j+1] = 'longitude'
                 } else {
                     matrix[i][j] = headerText
                 }
             });
 
             htmlTable(row).find('td').each((j, data) => {
-                let innerText = htmlTable(data).text().trim()
+                let innerText: string = htmlTable(data).text().trim()
                 if (innerText === 'map') {
                     let coordsUrl: string = htmlTable(data).children().attr('href')
                     if (coordsUrl) {
@@ -41,7 +41,7 @@ export class Converter {
                         matrix[i][j] = ''
                     }
                 } else {
-                    matrix[i][j] = innerText
+                    matrix[i][j] = innerText.replace(',', '')
                 }
             });
         });
