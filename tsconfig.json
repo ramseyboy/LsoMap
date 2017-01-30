@@ -3,11 +3,13 @@
     "moduleResolution": "node",
     "target": "es5",
     "sourceMap": true,
+    "noImplicitAny": false,
     "lib": ["es6", "dom"],
     "skipDefaultLibCheck": true
   },
   "exclude": [
       "bin",
+      "scraper",
       "node_modules"
   ]
 }
