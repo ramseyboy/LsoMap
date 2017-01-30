@@ -16,7 +16,7 @@ module.exports = merge({
     },
     module: {
         loaders: [
-            { test: /\.ts(x?)$/, include: /client/, loader: 'ts-loader?silent=true' },
+            { test: /\.ts(x?)$/, include: /src-client/, loader: 'ts-loader?silent=true' },
             { test: /\.css/, loader: extractCSS.extract(['css-loader']) },
             {
                 test: /\.png$/,
@@ -26,10 +26,10 @@ module.exports = merge({
         ]
     },
     entry: {
-        main: ['./client/exchange.ts']
+        main: ['./src-client/exchange.ts']
     },
     output: {
-        path: path.join(__dirname, 'wwwroot', 'dist'),
+        path: path.join(__dirname, 'src/wwwroot', 'dist'),
         filename: 'bundle.js',
         publicPath: '/dist/'
     },
@@ -37,7 +37,7 @@ module.exports = merge({
         extractCSS,
         new webpack.DllReferencePlugin({
             context: __dirname,
-            manifest: require('./wwwroot/dist/vendor-manifest.json')
+            manifest: require('./src/wwwroot/dist/vendor-manifest.json')
         })
     ]
 }, isDevelopment ? devConfig : prodConfig);

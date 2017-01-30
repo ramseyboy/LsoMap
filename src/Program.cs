@@ -13,7 +13,7 @@ namespace Exchange
         {
             var host = new WebHostBuilder()
                 .UseKestrel()
-                .UseContentRoot(Directory.GetCurrentDirectory())
+                .UseContentRoot(Directory.GetCurrentDirectory() + "/src/")
                 .UseIISIntegration()
                 .UseStartup<Startup>()
                 .Build();
