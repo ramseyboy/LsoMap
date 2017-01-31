@@ -4,11 +4,13 @@ import {Converter} from "./converter"
 import axios, {
   AxiosResponse
 } from "axios"
+import * as sleep from "sleep"
 
 class App {
 
     private static readonly url: string = "http://localcallingguide.com/lca_prefix.php"
     private static readonly out_dir: string = "out/"
+    private static readonly crawl_delay: number = 1500
     private readonly converter = new Converter()
 
     public async run() {
@@ -48,22 +50,27 @@ class App {
                 if (geoJson.features.length == 0) {
                     break
                 }
-                
-                let json: string = JSON.stringify(geoJson, null, 2)
-                
-                let areaCodeDir = App.out_dir + areaCode
-                if (!fs.existsSync(areaCodeDir)) {
-                    fs.mkdirSync(areaCodeDir)
-                }
 
-                fs.writeFileSync(`${areaCodeDir}/${areaCode}_${index}.json`, json)
+                this.writeJsonToDisk(geoJson, areaCode, index)
 
+                sleep.msleep(App.crawl_delay)
                 index++
             }
         } catch(err) {
             console.log(`pagination error: ex ->`, err)
             process.exit(1)
         }
+    }
+
+    private async writeJsonToDisk(geoJson: string, areaCode: string, index: number) {
+        let json: string = JSON.stringify(geoJson, null, 2)
+        
+        let areaCodeDir = App.out_dir + areaCode
+        if (!fs.existsSync(areaCodeDir)) {
+            fs.mkdirSync(areaCodeDir)
+        }
+
+        fs.writeFileSync(`${areaCodeDir}/${areaCode}_${index}.json`, json)
     }
 
     private readFile(filePath: string): Promise<string> {

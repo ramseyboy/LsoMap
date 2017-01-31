@@ -4,7 +4,8 @@
   "description": "telecom switch web scraper",
   "main": "main.js",
   "dependencies": {
-    "axios": "^0.15.3"
+    "axios": "^0.15.3",
+    "sleep": "^5.1.0"
   },
   "devDependencies": {
     "@types/node": "^7.0.4",
