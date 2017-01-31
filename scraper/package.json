@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "telecom switch web scraper",
   "main": "main.js",
+  "dependencies": {
+    "axios": "^0.15.3"
+  },
   "devDependencies": {
     "@types/node": "^7.0.4",
     "cheerio": "^0.22.0",
@@ -13,7 +16,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm run build:live",
+    "start": "./node_modules/.bin/ts-node ./main.ts",
+    "start:deamon": "npm run build:live",
     "build:live": "nodemon --exec ./node_modules/.bin/ts-node -- ./main.ts"
   },
   "repository": {
