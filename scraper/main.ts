@@ -10,7 +10,7 @@ class App {
 
     private static readonly url: string = "http://localcallingguide.com/lca_prefix.php"
     private static readonly out_dir: string = "out/"
-    private static readonly crawl_delay: number = 1500
+    private static readonly crawl_delay: number = 5000
     private readonly converter = new Converter()
 
     public async run() {
@@ -23,7 +23,7 @@ class App {
             for (let line of areacodes.split("\n")) {
                 let areaCode = line.split(",")[0]
                 if (Number(areaCode)) {
-                    this.paginateAreaCodes(areaCode)
+                    await this.paginateAreaCodes(areaCode)
                 }                
             }
             
@@ -34,32 +34,29 @@ class App {
     }
 
     private async paginateAreaCodes(areaCode: string) {
-        try {
-            var index = 1
+        var index = 1
             while (true) {
-                let html: AxiosResponse = await axios.get(App.url, {
-                    params: {
-                        page: index,
-                        npa: areaCode
+                try {
+                    let html: AxiosResponse = await axios.get(App.url, {
+                        params: {
+                            page: index,
+                            npa: areaCode
+                        }
+                    })
+
+                    let csv: string = this.converter.convert(html.data)
+                    let geoJson = await this.convertCsvToGeoJson(csv)
+                    // if we dont have any valid features, we are out of pages
+                    if (geoJson.features.length == 0) {
+                        break
                     }
-                })
 
-                let csv: string = this.converter.convert(html.data)
-                let geoJson = await this.convertCsvToGeoJson(csv)
-                // if we dont have any valid features, we are out of pages
-                if (geoJson.features.length == 0) {
-                    break
+                    await this.writeJsonToDisk(geoJson, areaCode, index)
+                } catch(err) {
+                    console.log(`Error creating ${areaCode}_${index}.json`)
                 }
-
-                this.writeJsonToDisk(geoJson, areaCode, index)
-
-                sleep.msleep(App.crawl_delay)
                 index++
             }
-        } catch(err) {
-            console.log(`pagination error: ex ->`, err)
-            process.exit(1)
-        }
     }
 
     private async writeJsonToDisk(geoJson: string, areaCode: string, index: number) {
@@ -71,6 +68,7 @@ class App {
         }
 
         fs.writeFileSync(`${areaCodeDir}/${areaCode}_${index}.json`, json)
+        sleep.msleep(App.crawl_delay)
     }
 
     private readFile(filePath: string): Promise<string> {
