@@ -93,3 +93,28 @@ fabric.properties
 /public/build/*
 /.idea/*
 
+# Gradle
+build
+.gradle
+
+# IntelliJ
+*.iml
+*.ipr
+*.iws
+*.eml
+.idea/*
+!.idea/runConfigurations
+
+# Eclipse
+.settings/*
+*.userlibraries
+.classpath
+.project
+
+# Develop
+hbo-android/assets/android.properties
+
+#Python
+*.class
+
+
