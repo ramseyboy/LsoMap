@@ -25,15 +25,14 @@ targetCompatibility = 1.8
 
 dependencies {
 
-    compile("org.springframework.boot:spring-boot-starter-web") {
-        exclude module: "spring-boot-starter-tomcat"
-    }
-    compile("org.springframework.boot:spring-boot-starter-jetty")
+    compile"org.springframework.boot:spring-boot-starter-web"
 
     compile("org.springframework.boot:spring-boot-starter-actuator")
 
     compile("org.springframework.boot:spring-boot-starter-data-jpa")
-    compile("com.h2database:h2")
+    compile group: 'postgresql', name: 'postgresql', version: '9.4.1208-jdbc42-atlassian-hosted'
+    compile 'org.hibernate:hibernate-spatial:5.2.9.Final'
+    compile 'com.bedatadriven:jackson-datatype-jts:2.2'
 
     testCompile("junit:junit")
 }
