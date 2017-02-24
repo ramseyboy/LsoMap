@@ -18,7 +18,7 @@ module.exports = {
         vendor: ['event-source-polyfill', 'style-loader']
     },
     output: {
-        path: path.join(__dirname, 'wwwroot', 'dist'),
+        path: path.join(__dirname, 'src/main/resources/public', 'dist'),
         filename: '[name].js',
         library: '[name]_[hash]',
     },
@@ -26,7 +26,7 @@ module.exports = {
         extractCSS,
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.DllPlugin({
-            path: path.join(__dirname, 'wwwroot', 'dist', '[name]-manifest.json'),
+            path: path.join(__dirname, 'src/main/resources/public', 'dist', '[name]-manifest.json'),
             name: '[name]_[hash]'
         })
     ].concat(isDevelopment ? [] : [

@@ -29,7 +29,7 @@ module.exports = merge({
         main: ['./src-client/exchange.ts']
     },
     output: {
-        path: path.join(__dirname, 'src/wwwroot', 'dist'),
+        path: path.join(__dirname, 'src/main/resources/public', 'dist'),
         filename: 'bundle.js',
         publicPath: '/dist/'
     },
@@ -37,7 +37,7 @@ module.exports = merge({
         extractCSS,
         new webpack.DllReferencePlugin({
             context: __dirname,
-            manifest: require('./src/wwwroot/dist/vendor-manifest.json')
+            manifest: require('./src/main/resources/public/dist/vendor-manifest.json')
         })
     ]
 }, isDevelopment ? devConfig : prodConfig);

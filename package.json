@@ -4,9 +4,9 @@
   "description": "Telecom Exchange Mileage Application",
   "private": true,
   "scripts": {
-    "dev": "export ASPNETCORE_ENVIRONMENT=Development && dotnet build && webpack --config webpack.config.vendor.js && webpack",
-    "prod": "export ASPNETCORE_ENVIRONMENT=Production dotnet build  && webpack --config webpack.config.vendor.js && webpack",
-    "start": "dotnet run",
+    "dev": "webpack --config webpack.config.vendor.js && webpack",
+    "prod": "webpack --config webpack.config.vendor.js && webpack",
+    "start": "./gradlew bootRun",
     "watch": "webpack --watch",
     "config": "webpack --config webpack.config.vendor.js"
   },

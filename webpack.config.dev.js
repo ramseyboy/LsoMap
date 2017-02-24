@@ -6,7 +6,7 @@ module.exports = {
         // Plugins that apply in development builds only
         new webpack.SourceMapDevToolPlugin({
             filename: '[file].map', // Remove this line if you prefer inline source maps
-            moduleFilenameTemplate: path.relative('./src/wwwroot/dist', '[resourcePath]') // Point sourcemap entries to the original file locations on disk
+            moduleFilenameTemplate: path.relative('./src/main/resources/public/dist', '[resourcePath]') // Point sourcemap entries to the original file locations on disk
         })
     ]
 };
