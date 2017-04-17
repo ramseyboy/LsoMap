@@ -7,10 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
@@ -37,5 +34,30 @@ public class SwitchController {
             return ResponseEntity.ok(found);
         }
         return ResponseEntity.notFound().build();
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/switch", params="region")
+    public Page<Switch> switchByRegion(@PageableDefault Pageable page, @RequestParam("region") String region) {
+        return switchRepository.findByRegion(page, region);
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/switch", params="npa_nxx")
+    public Page<Switch> switchByNpaNxx(@PageableDefault Pageable page, @RequestParam("npa_nxx") String npaNxx) {
+        return switchRepository.findByNpaNxx(page, npaNxx);
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/switch", params="area_code")
+    public Page<Switch> switchByAreaCode(@PageableDefault Pageable page, @RequestParam("area_code") String areaCode) {
+        return switchRepository.findByAreaCode(page, areaCode);
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/switch", params="exchange")
+    public Page<Switch> switchByExchange(@PageableDefault Pageable page, @RequestParam("exchange") String exchange) {
+        return switchRepository.findByExchange(page, exchange);
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/switch", params="switch_id")
+    public Page<Switch> switchBySwitchId(@PageableDefault Pageable page, @RequestParam("switch_id") String switchId) {
+        return switchRepository.findBySwitchId(page, switchId);
     }
 }

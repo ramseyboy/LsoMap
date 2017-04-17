@@ -46,9 +46,9 @@ public class Switch {
     @Column(name = "npa_nxx")
     private String npaNxx;
 
-    @JsonProperty("switch_address")
+    @JsonProperty("switch_id")
     @Column(name = "switch")
-    private String switchAddress;
+    private String switchId;
 
     @JsonProperty("region")
     private String region;
@@ -86,7 +86,7 @@ public class Switch {
     }
 
     public String getSwitchAddress() {
-        return switchAddress;
+        return switchId;
     }
 
     public String getRegion() {
