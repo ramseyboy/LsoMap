@@ -2,6 +2,7 @@ package me.ramseyboy.exchange.api.domain;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.vividsolutions.jts.geom.Geometry;
+import com.vividsolutions.jts.geom.MultiPolygon;
 import com.vividsolutions.jts.geom.Polygon;
 
 import javax.persistence.Column;
@@ -19,8 +20,8 @@ public class AreaCode {
     private int id;
 
     @JsonProperty("geometry")
-    @Column(name = "wkb_geometry", columnDefinition = "Polygon")
-    private Polygon geometry;
+    @Column(name = "wkb_geometry", columnDefinition = "Geometry")
+    private Geometry geometry;
 
     @JsonProperty("object_id")
     @Column(name = "objectid")

@@ -5,12 +5,8 @@ import me.ramseyboy.exchange.api.domain.AreaCodeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
@@ -25,7 +21,7 @@ public class AreaCodeController {
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/areacode")
-    public Page<AreaCode> allAreaCodes(@PageableDefault Pageable page) {
+    public Page<AreaCode> allAreaCodes(Pageable page) {
         return areaCodeRepository.findAll(page);
     }
 
@@ -36,5 +32,15 @@ public class AreaCodeController {
             return ResponseEntity.ok(areaCode.get());
         }
         return ResponseEntity.notFound().build();
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/areacode", params = "state")
+    public Page<AreaCode> areaCodeByState(Pageable page, @RequestParam("state") String state) {
+        return areaCodeRepository.findByState(page, state);
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/areacode", params = "area_code")
+    public Page<AreaCode> areaCodeByNpa(Pageable page, @RequestParam("area_code") String areaCode) {
+        return areaCodeRepository.findByNpa(page, areaCode);
     }
 }
