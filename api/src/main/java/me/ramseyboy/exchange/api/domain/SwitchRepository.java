@@ -14,7 +14,7 @@ public interface SwitchRepository extends JpaRepository<Switch, Integer> {
     @Query("SELECT s FROM Switch s WHERE SUBSTRING(s.npaNxx, 1, 3) = :areaCode")
     Page<Switch> findByAreaCode(Pageable page, @Param("areaCode") String areaCode);
 
-    @Query("SELECT s FROM Switch s WHERE SUBSTRING(s.npaNxx, 5, 7) = :exchange")
+    @Query("SELECT s FROM Switch s WHERE SUBSTRING(s.npaNxx, 5, LENGTH(s.npaNxx)) = :exchange")
     Page<Switch> findByExchange(Pageable page, @Param("exchange") String exchange);
 
     Page<Switch> findBySwitchId(Pageable page, String switchId);
