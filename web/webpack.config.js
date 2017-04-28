@@ -4,7 +4,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var merge = require('extendify')({ isDeep: true, arrays: 'concat' });
 var devConfig = require('./webpack.config.dev');
 var prodConfig = require('./webpack.config.prod');
-var isDevelopment = process.env.ASPNETCORE_ENVIRONMENT === 'Development';
+var isDevelopment = true;
 var extractCSS = new ExtractTextPlugin('exchange.css');
 
 module.exports = merge({
@@ -26,18 +26,14 @@ module.exports = merge({
         ]
     },
     entry: {
-        main: ['./src-client/exchange.ts']
+        main: ['./src-client/index.tsx']
     },
     output: {
-        path: path.join(__dirname, 'src/main/resources/public', 'dist'),
+        path: path.join(__dirname, 'src/public', 'dist'),
         filename: 'bundle.js',
         publicPath: '/dist/'
     },
     plugins: [
-        extractCSS,
-        new webpack.DllReferencePlugin({
-            context: __dirname,
-            manifest: require('./src/main/resources/public/dist/vendor-manifest.json')
-        })
+        extractCSS
     ]
 }, isDevelopment ? devConfig : prodConfig);

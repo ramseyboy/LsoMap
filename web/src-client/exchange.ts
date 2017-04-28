@@ -9,10 +9,7 @@ import L = require('leaflet');
 
     console.log("exchange it");
 
-    let myHeading = document.querySelector('h1');
-    myHeading.textContent = 'Telecommunications exchange locator';
-
-    let myMap = L.map('mapid').setView([38.03, -78.478889], 13);
+    let myMap = L.map('root').setView([38.03, -78.478889], 13);
 
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
         attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
