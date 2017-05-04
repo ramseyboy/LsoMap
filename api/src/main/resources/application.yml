@@ -12,7 +12,7 @@ spring:
         database-platform: org.hibernate.spatial.dialect.postgis.PostgisDialect
         show-sql: true
         hibernate:
-            ddl-auto: validate
+            ddl-auto: none
 
 server:
     port: 8181
