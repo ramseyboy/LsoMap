@@ -20,7 +20,7 @@ parser.add_argument('-p', '--precision', dest='precision',
 if __name__ == '__main__':
     args = parser.parse_args()
 
-    jsonDir = "../out"
+    jsonDir = "out/"
 
     outjson = dict(type='FeatureCollection', features=[])
 
@@ -43,7 +43,7 @@ if __name__ == '__main__':
 
     format = '%.' + str(args.precision) + 'f'
 
-    outFilePath = "../out/collected-switches.json"
+    outFilePath = "collected-switches.json"
     outFile = open(outFilePath, 'w+')
     output = outFile
 
