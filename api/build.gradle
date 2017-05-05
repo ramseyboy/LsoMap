@@ -1,5 +1,3 @@
-import org.gdal.ogr.ogr;
-
 buildscript {
     repositories {
         jcenter()
@@ -43,8 +41,4 @@ dependencies {
     compile("org.springframework.boot:spring-boot-devtools")
 
     testCompile("junit:junit")
-}
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '3.4'
 }
