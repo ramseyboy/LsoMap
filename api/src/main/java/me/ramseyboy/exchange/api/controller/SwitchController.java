@@ -27,7 +27,7 @@ public class SwitchController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/switch/{id}")
     public ResponseEntity<Switch> switchById(@PathVariable Integer id) {
-        Optional<Switch> maybeSwitch = Optional.ofNullable(switchRepository.findOne(id));
+        Optional<Switch> maybeSwitch = switchRepository.findById(id);
         if (maybeSwitch.isPresent()) {
             Switch found = maybeSwitch.get();
             return ResponseEntity.ok(found);

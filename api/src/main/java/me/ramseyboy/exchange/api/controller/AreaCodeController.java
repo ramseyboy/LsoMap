@@ -27,11 +27,8 @@ public class AreaCodeController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/areacode/{id}")
     public ResponseEntity<AreaCode> areaCodeById(@PathVariable Integer id) {
-        Optional<AreaCode> areaCode = Optional.ofNullable(areaCodeRepository.findOne(id));
-        if (areaCode.isPresent()) {
-            return ResponseEntity.ok(areaCode.get());
-        }
-        return ResponseEntity.notFound().build();
+        Optional<AreaCode> areaCode = areaCodeRepository.findById(id);
+        return areaCode.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/areacode", params = "state")
