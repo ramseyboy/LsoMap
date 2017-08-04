@@ -3,5 +3,13 @@ plugins {
 }
 
 task build(type: NpmTask) {
-  args = ['run', 'dev']
+  args = ['run', 'build']
+}
+
+task watch(type: NpmTask) {
+  args = ['run', 'watch']
+}
+
+task start(type: NpmTask) {
+  args = ['start']
 }
