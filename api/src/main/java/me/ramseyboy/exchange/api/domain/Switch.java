@@ -92,4 +92,25 @@ public class Switch {
     public String getRegion() {
         return region;
     }
+
+    public Point getGeometry() {
+        return geometry;
+    }
+
+    @Override
+    public String toString() {
+        return "Switch{" +
+                "id=" + id +
+                ", geometry=" + geometry +
+                ", block='" + block + '\'' +
+                ", rateCentre='" + rateCentre + '\'' +
+                ", discDate='" + discDate + '\'' +
+                ", ocn='" + ocn + '\'' +
+                ", effDate='" + effDate + '\'' +
+                ", lata='" + lata + '\'' +
+                ", npaNxx='" + npaNxx + '\'' +
+                ", switchId='" + switchId + '\'' +
+                ", region='" + region + '\'' +
+                '}';
+    }
 }

@@ -26,9 +26,11 @@ public class TelecomExchangeApi {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/switch")
+                registry.addMapping("/switch/*")
                         .allowedOrigins("http://localhost:8080");
                 registry.addMapping("/areacode")
+                        .allowedOrigins("http://localhost:8080");
+                registry.addMapping("/distance")
                         .allowedOrigins("http://localhost:8080");
             }
         };

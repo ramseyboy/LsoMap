@@ -1,7 +1,12 @@
 package me.ramseyboy.exchange.api.controller;
 
+import com.vividsolutions.jts.geom.Point;
+import me.ramseyboy.exchange.api.controller.model.DistanceResponse;
 import me.ramseyboy.exchange.api.domain.Switch;
 import me.ramseyboy.exchange.api.domain.SwitchRepository;
+import me.ramseyboy.exchange.api.service.GeoService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -14,10 +19,14 @@ import java.util.Optional;
 public class SwitchController {
 
     private final SwitchRepository switchRepository;
+    private final GeoService geoService;
+    private final Logger logger;
 
     @Autowired
-    public SwitchController(SwitchRepository switchRepository) {
+    public SwitchController(SwitchRepository switchRepository, GeoService geoService) {
         this.switchRepository = switchRepository;
+        this.geoService = geoService;
+        this.logger = LoggerFactory.getLogger(SwitchController.class);
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/switch")
@@ -58,5 +67,27 @@ public class SwitchController {
     @RequestMapping(method = RequestMethod.GET, value = "/switch", params = "switch_id")
     public Page<Switch> switchBySwitchId(Pageable page, @RequestParam("switch_id") String switchId) {
         return switchRepository.findBySwitchId(page, switchId);
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/switch/distance", params = {"beginId", "endId"})
+    public ResponseEntity<DistanceResponse> switchDistance(@RequestParam("beginId") Integer beginId,
+                                                           @RequestParam("endId") Integer endId) {
+
+        if (beginId == null || endId == null) {
+            return ResponseEntity.badRequest()
+                    .build();
+        }
+
+        Optional<Switch> begin = switchRepository.findById(beginId);
+        Optional<Switch> end = switchRepository.findById(endId);
+        if (begin.isPresent() && end.isPresent()) {
+            Point beginPoint = begin.get().getGeometry();
+            Point endPoint = end.get().getGeometry();
+
+            double distance = geoService.computeDistance(beginPoint.getX(), beginPoint.getY(), endPoint.getX(), endPoint.getY());
+
+            return ResponseEntity.ok(new DistanceResponse(begin.get(), end.get(), distance));
+        }
+        return ResponseEntity.notFound().build();
     }
 }

@@ -112,4 +112,24 @@ public class AreaCode {
     public Double getShapeArea() {
         return shapeArea;
     }
+
+    @Override
+    public String toString() {
+        return "AreaCode{" +
+                "id=" + id +
+                ", geometry=" + geometry +
+                ", objectId='" + objectId + '\'' +
+                ", npa='" + npa + '\'' +
+                ", state='" + state + '\'' +
+                ", type='" + type + '\'' +
+                ", begindial='" + begindial + '\'' +
+                ", prevnpa='" + prevnpa + '\'' +
+                ", enddial='" + enddial + '\'' +
+                ", country='" + country + '\'' +
+                ", tagsAdded='" + tagsAdded + '\'' +
+                ", tagsModified='" + tagsModified + '\'' +
+                ", shapeLength=" + shapeLength +
+                ", shapeArea=" + shapeArea +
+                '}';
+    }
 }
