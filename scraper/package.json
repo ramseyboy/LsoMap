@@ -1,34 +1,30 @@
 {
   "name": "scraper",
   "version": "1.0.0",
-  "description": "telecom switch web scraper",
+  "description": "Telecommunications central office and NPA-NXX web scraper module",
   "main": "main.js",
+  "engines": {
+    "node": ">=8.4.0"
+  },
+  "engineStrict" : true,
   "dependencies": {
     "axios": "^0.15.3",
-    "sleep": "^5.1.0"
-  },
-  "devDependencies": {
-    "@types/node": "^7.0.4",
+    "sleep": "^5.1.0",
     "cheerio": "^0.22.0",
-    "csv2geojson": "^5.0.2",
-    "nodemon": "^1.11.0",
-    "ts-node": "^2.0.0",
-    "typescript": "^2.1.5"
+    "csv2geojson": "^5.0.2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "./node_modules/.bin/ts-node ./main.ts",
-    "start:deamon": "npm run build:live",
-    "build:live": "nodemon --exec ./node_modules/.bin/ts-node -- ./main.ts"
+    "start": "node ./main.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ramseyboy/telecom-exchange.git"
+    "url": "git+https://github.com/ramseyboy/TEM-MileageCalculator.git"
   },
   "author": "Walker Hannan",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ramseyboy/telecom-exchange/issues"
+    "url": "https://github.com/ramseyboy/TEM-MileageCalculator/issues"
   },
-  "homepage": "https://github.com/ramseyboy/telecom-exchange#readme"
+  "homepage": "https://github.com/ramseyboy/TEM-MileageCalculator#readme"
 }
