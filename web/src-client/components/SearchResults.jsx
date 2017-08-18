@@ -17,8 +17,8 @@ export class SearchResults extends React.Component {
         const resultsList = results.map((r) =>
             <li>
                 <div className={styles.item}>
-                <span className={styles.name} key={r.geekid}>
-                    {r.name}
+                <span className={styles.name} key={r.id}>
+                    {r.ocn} - {r.switchId}
                 </span>
                 </div>
             </li>

@@ -21,7 +21,7 @@ const searchResults = (state = {
                 ...state,
                 isFetching: false,
                 query: action.query,
-                results : action.results
+                results : action.results.content
             };
         default:
             return state
