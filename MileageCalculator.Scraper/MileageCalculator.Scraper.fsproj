@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="collect-json.py" />
+    <Content Include="converter.js" />
+    <Content Include="data\areacodes.json" />
+    <Content Include="data\collected-switches.json" />
+    <Content Include="data\out.zip" />
+    <Content Include="main.js" />
+    <Content Include="package.json" />
+    <Content Include="resources\areacodes.csv" />
+    <Content Include="resources\errors.txt" />
+    <Content Include="resources\NPA-NXX-ex.html.txt" />
+    <Content Include="tsconfig.json" />
+  </ItemGroup>
+
+</Project>
