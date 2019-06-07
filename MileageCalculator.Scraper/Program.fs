@@ -1,8 +1,17 @@
-﻿// Learn more about F# at http://fsharp.org
+﻿open System
+open FSharp.Data
 
-open System
+let testFile = "./resources/512-test-search.xml"
+
+type NPA = XmlProvider<"""./resources/512-test-search.xml""">
+
 
 [<EntryPoint>]
 let main argv =
-    printfn "Hello World from F#!"
-    0 // return an integer exit code
+           
+    let Root = NPA.Parse(testFile)   
+    Console.WriteLine Root.Inputdata.Npa
+
+    0
+    
+
