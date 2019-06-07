@@ -1,6 +1,6 @@
 # Telecom Exchange Map
 
-[![Build Status](https://travis-ci.org/ramseyboy/telecom-exchange.svg?branch=master)](https://travis-ci.org/ramseyboy/telecom-exchange)
+[![Build Status](https://travis-ci.org/ramseyboy/LsoMap.svg?branch=master](https://travis-ci.org/ramseyboy/LsoMap)
 
 To run:
 ```
