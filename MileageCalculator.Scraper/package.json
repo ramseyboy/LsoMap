@@ -8,7 +8,7 @@
   },
   "engineStrict" : true,
   "dependencies": {
-    "axios": "^0.15.3",
+    "axios": "^0.19.0",
     "sleep": "^5.1.0",
     "cheerio": "^0.22.0",
     "csv2geojson": "^5.0.2"
